@@ -9,16 +9,14 @@ include __DIR__ . '/tpl/body_start.php';
         <form action="index.php" method="POST">
             <?php
             if (isset($_POST['joinGame'])) {
-                echo '<div class="form-group"><label>Game Code</label><input class="form-control" name="gameCode" type="text" placeholder="Please enter a game code..."></div>';
+                echo '<div class="form-group"><label>Game Code</label><input id="gameCode" class="form-control text-uppercase" name="gameCode" type="text" placeholder="Enter a game c"></div>';
                 echo '<button type="submit" name="joinGameCode" class="btn btn-primary">Join</button>';
             } else if (isset($_POST['newGame'])) {
                 echo '<h1>Game Code</h1>';
             }
 
             if ((isset($_POST['joinGameCode'])) && (isset($_POST['gameCode']))) {
-                if ($_POST['gameCode'] !== '') {
-                    echo '<h1>' . $_POST['gameCode'] . '</h1>';
-                }
+                echo '<h1>' . $_POST['gameCode'] . '</h1>';
             }
 
             ?>
