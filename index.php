@@ -5,6 +5,7 @@ include __DIR__ . '/tpl/body_start.php';
 ?>
 
 <div class="row">
+    <script type="application/javascript" src="scripts/game.js"></script>
     <div class="col-md-12" style="background-color: darkgray;">
         <form action="index.php" method="POST">
             <?php
