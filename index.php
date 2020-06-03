@@ -7,7 +7,7 @@ include __DIR__ . '/tpl/body_start.php';
 <div class="row">
     <script type="application/javascript" src="scripts/game.js"></script>
     <div class="col-md-12" style="background-color: darkgray;">
-        <form id="gameCodeForm" action="index.php" method="POST">
+        <form id="gameCodeForm" action="game.php" method="POST">
             <div id="enterCode" style="display:none;">
                 <div class="form-group">
                     <label>Game Code</label>
