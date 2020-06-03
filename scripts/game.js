@@ -1,27 +1,28 @@
 function checkPresence() {
-    $.post("scripts/checkpresence.php", {game_number: '42ZWGA'});
+    $.post("scripts/checkpresence.php", {game_number: 'K0O6TM', player_number: });
 
     }
 
 function makeGame() {
-    let test $.post("scripts/makegame.php", {game_number: generateCode() });
-    if (test === false) {
+    $.post("scripts/makegame.php", {game_number: generateCode() });
+
+    if (!check) {
         makeGame();
     }
 
 }
 
-function generateCode() {
-    // Generates a game code
-    $possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-    $code = '';
-    for (i = 0; i < 6; i++) {
-        $num = Math.floor(Math.random() * 36);
-        $code += $possible[$num];
-    }
-    // Add check to see if code already exists?
-    return $code
-}
+// function generateCode() {
+//     // Generates a game code
+//     $possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+//     $code = '';
+//     for (i = 0; i < 6; i++) {
+//         $num = Math.floor(Math.random() * 36);
+//         $code += $possible[$num];
+//     }
+//     // Add check to see if code already exists?
+//     return $code
+// }
 
 
 $(function() {
@@ -29,8 +30,4 @@ $(function() {
         checkPresence();
     }, 5000)
 
-
-    $('#newGame').on('click', function() {
-        makeGame();
-    });
 });

@@ -3,8 +3,9 @@
 $json_file = file_get_contents("../data/games.json");
 $games = json_decode($json_file, true);
 // Generate time number
+$playerNumber = 3;
 $game_number = $_POST['game_number'];
-$games[$game_number]['player1_time'] = time();
+$games[$game_number]['player'. $playerNumber . '_time'] = time();
 
 
 //array_push($games, [

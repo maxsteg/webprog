@@ -1,16 +1,14 @@
-console.log('hoi')
-
-function generateCode() {
-    // Generates a game code
-    $possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-    $code = '';
-    for (i = 0; i < 6; i++) {
-        $num = Math.floor(Math.random() * 36);
-        $code += $possible[$num];
-    }
-    // Add check to see if code already exists?
-    return $code
-}
+// function generateCode() {
+//     // Generates a game code
+//     $possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+//     $code = '';
+//     for (i = 0; i < 6; i++) {
+//         $num = Math.floor(Math.random() * 36);
+//         $code += $possible[$num];
+//     }
+//     // Add check to see if code already exists?
+//     return $code
+// }
 
 function validateGameCode() {
     let codeVal = $('#gameCode').val();
@@ -26,11 +24,6 @@ function validateGameCode() {
 
 
 $(function() {
-    // $('#newGame').on('click', function() {
-    //     var gameCode = generateCode();
-    //     alert(gameCode);
-    //     event.preventDefault();
-    // });
 
     $('#joinGame').on('click', function(e) {
         $('#enterCode').show();
@@ -45,8 +38,9 @@ $(function() {
 
     $('#submitGameCode').on('click', function(e) {
         if (validateGameCode()) {
-            var gameCode = $('#gameCode').val().toUpperCase();
-            $.post("scripts/joingame.php", {game_number: gameCode});
+            $('#gameCode').val().toUpperCase();
+            $('form').trigger("submit");
+            // $.post("scripts/joingame.php", {game_number: gameCode});
         }
         e.preventDefault();
     });
