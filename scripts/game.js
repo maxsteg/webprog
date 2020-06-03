@@ -3,6 +3,11 @@ function checkPresence() {
 
     }
 
+function makeGame() {
+    $.post("scripts/makegame.php", {game_number: 'ABCDEF'});
+
+}
+
 
 $(function() {
     window.setInterval(function (){
