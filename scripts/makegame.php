@@ -6,10 +6,14 @@ $games = json_decode($json_file, true);
 $game_number = $_POST['game_number'];
 
 
-array_push($games, [
-    $game_number => {
-    'time' => time();}
-]);
+if !($games[$game_number]) {
+    $games[$game_number]['player1_time'] = time();
+}
+elif {
+    return False;
+}
+// HIER MOET EEN ELIF KOMEN WAT TE DOEN ALS CODE AL WEL BESTAAT
+
 
 // Save to external file
 $json_file = fopen('../data/games.json', 'w');

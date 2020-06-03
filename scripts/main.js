@@ -1,3 +1,5 @@
+console.log('hoi')
+
 function generateCode() {
     // Generates a game code
     $possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
@@ -24,28 +26,28 @@ function validateGameCode() {
 
 
 $(function() {
-    $('#newGame').on('click', function() {
-        var gameCode = generateCode();
-        alert(gameCode);
-        event.preventDefault();
-    });
+    // $('#newGame').on('click', function() {
+    //     var gameCode = generateCode();
+    //     alert(gameCode);
+    //     event.preventDefault();
+    // });
 
-    $('#joinGame').on('click', function() {
+    $('#joinGame').on('click', function(e) {
         $('#enterCode').show();
         $('#startGameButtons').hide();
-        event.preventDefault();
+        e.preventDefault();
     });
 
-    $('#gameCode').keyup(function () {
+    $('#gameCode').keyup(function (e) {
         validateGameCode();
-        event.preventDefault();
+        e.preventDefault();
     });
 
-    $('#submitGameCode').on('click', function() {
+    $('#submitGameCode').on('click', function(e) {
         if (validateGameCode()) {
             var gameCode = $('#gameCode').val().toUpperCase();
-            alert(gameCode);
-        };
-        event.preventDefault();
+            $.post("scripts/joingame.php", {game_number: gameCode});
+        }
+        e.preventDefault();
     });
 });
