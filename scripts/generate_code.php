@@ -8,3 +8,16 @@ function generateCode() {
     }
     return $code;
 }
+
+function checkCode() {
+    $json_file = file_get_contents("../data/games.json");
+    $games = json_decode($json_file, true);
+    $valid = false;
+    while ($valid != true) {
+        $code = generateCode();
+        if (array_key_exists($code, $games) == false) {
+            $valid = true;
+        }
+    }
+    return $code;
+}
