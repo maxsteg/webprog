@@ -3,6 +3,9 @@ function checkPresence() {
 
     }
 
+function checkOthersPresence() {
+    $.post("scripts/otherspresence.php");
+}
 
 
 $(function() {
@@ -11,6 +14,9 @@ $(function() {
     // console.log(gameNumber);
     window.setInterval(function (){
         checkPresence();
+        if (checkOthersPresence()) {
+            console.log('YAY IEMAND IS WEG EINDE')
+        }
     }, 5000)
 
 });

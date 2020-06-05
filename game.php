@@ -21,14 +21,16 @@ session_start();
 
 <?php
 // If game_number is submitted (user joins game)
-if (isset($_POST["gameCode"])) {
+if (isset($_POST["gameCode"])) { // Needs to be changed
     include __DIR__ . '/scripts/joingame.php';
     $_SESSION['game_number'] = $_POST['gameCode'];
-    $_SESSION['player_number'] = 2;
+    $_SESSION['player_number'] = 2; // TO-DO Check which player you are
     // Check if this gameCode exist (check if input is safe too)
     joinGame($_SESSION['game_number']);
-        // If two players --> Game can start
-    // Return to home page with alert: this game does not exist
+    echo '<h1>Joined Game, Game number is: '. $_SESSION['game_number'] . '</h1>';
+
+    // If two players --> Game can start
+
 }
 // User makes game
 elseif (isset($_POST["newGame"])) {
@@ -38,17 +40,24 @@ elseif (isset($_POST["newGame"])) {
     include __DIR__ . '/scripts/makegame.php';
     // Make game with makegame.php
     makeGame($_SESSION['game_number']);
-    echo '<h1>Game number is: '. $_SESSION['game_number'] . '</h1>';
-
+    echo '<h1>New Game, Game number is: '. $_SESSION['game_number'] . '</h1>';
 }
 
 else {
+    // TO-DO: Add alert on homepage, this game does not exist.
     // Redirect to homepage
     header('Location: index.php', true, 301);
     die();
 }
 
+include __DIR__ . 'scripts/checkready.php';
+// Check if there are two players -> checkready.php {
+    include __DIR__ . 'scripts/printboxes.php';
 ?>
+
+    <?php
+    }
+    ?>
 
  <script type="application/javascript" src="scripts/game.js"></script>
 </div>
