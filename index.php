@@ -6,11 +6,11 @@ include __DIR__ . '/tpl/body_start.php';
 
 <div class="row">
     <div class="col-md-12" style="background-color: darkgray;">
-        <form id="gameCodeForm" action="game.php" method="POST">
+        <form id="joinGameForm" action="game.php" method="POST">
             <div id="enterCode" style="display:none;">
                 <div class="form-group">
                     <label>Game Code</label>
-                    <input id="gameCode" class="form-control text-uppercase" name="gameCode" type="text" placeholder="e.g. ABC123">
+                    <input id="gameCode" class="form-control text-uppercase" name="gameCode" type="text" placeholder="e.g. ABC123" maxlength="6">
                     <div class="valid-feedback">
                         <b>Great!</b> This field looks good!</div>
                     <div class="invalid-feedback">
@@ -18,10 +18,10 @@ include __DIR__ . '/tpl/body_start.php';
                 </div>
                 <button type="submit" id="submitGameCode" name="submitGameCode" class="btn btn-primary">Join</button>
             </div>
-            <div class="form-group" id="startGameButtons">
-                <button name="newGame" id="newGame" class="btn btn-primary">New Game</button>
-                <button name="joinGame" id="joinGame" class="btn btn-secondary">Join Game</button>
-            </div>
+            <button name="joinGame" id="joinGame" class="btn btn-secondary">Join Game</button>
+        </form>
+        <form id="gameCodeForm" action="game.php" method="POST">
+            <button name="newGame" id="newGame" class="btn btn-primary">New Game</button>
         </form>
     </div>
 </div>
