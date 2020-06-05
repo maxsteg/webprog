@@ -26,7 +26,8 @@ function validateGameCode() {
 $(function() {
     $('#joinGame').on('click', function(e) {
         $('#enterCode').show();
-        $('#startGameButtons').hide();
+        $('#joinGame').hide();
+        $('#newGame').hide();
         e.preventDefault();
     });
 
@@ -39,7 +40,7 @@ $(function() {
         e.preventDefault();
         if (validateGameCode()) {
             $('#gameCode').val().toUpperCase();
-            document.getElementById('gameCodeForm').submit()
+            document.getElementById('joinGameForm').submit()
             // $.post("scripts/joingame.php", {game_number: gameCode});
         }
 
