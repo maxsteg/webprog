@@ -10,7 +10,7 @@ function generateCode() {
 }
 
 function checkCode() {
-    $json_file = file_get_contents("../data/games.json");
+    $json_file = file_get_contents("data/games.json");
     $games = json_decode($json_file, true);
     $valid = false;
     while ($valid != true) {

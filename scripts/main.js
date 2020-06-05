@@ -24,7 +24,6 @@ function validateGameCode() {
 
 
 $(function() {
-
     $('#joinGame').on('click', function(e) {
         $('#enterCode').show();
         $('#startGameButtons').hide();
@@ -37,11 +36,12 @@ $(function() {
     });
 
     $('#submitGameCode').on('click', function(e) {
+        e.preventDefault();
         if (validateGameCode()) {
             $('#gameCode').val().toUpperCase();
-            $('form').trigger("submit");
+            document.getElementById('gameCodeForm').submit()
             // $.post("scripts/joingame.php", {game_number: gameCode});
         }
-        e.preventDefault();
+
     });
 });

@@ -1,62 +1,56 @@
-<script>
-    function generateCode() {
-        // Generates a game code
-        $possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
-        $code = '';
-        for (i = 0; i < 6; i++) {
-            $num = Math.floor(Math.random() * 36);
-            $code += $possible[$num];
-        }
-        // Add check to see if code already exists?
-        return $code
-    }
-</script>
-
 <?php
 $page_title = 'Game';
 include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body_start.php';
 
+session_set_cookie_params([
+    'lifetime' => time() + 86400,
+    'path' => '/',
+    'domain' => 'localhost/webprog',
+    'secure' => true,
+    'httponly' => true,
+    'samesite' => 'Strict',
+]);
+session_start();
 
-// Must be replace with a real random code
-function randomCode() {
-    return "ABCDEF";
-}
+
+
 ?>
 
 <div class="row">
 
 <?php
 // If game_number is submitted (user joins game)
-if (isset($_POST["joinGame"])) {
+if (isset($_POST["gameCode"])) {
     include __DIR__ . '/scripts/joingame.php';
-    $game_number = ($_POST['gameCode']);
-    $player2 = true;
+    $_SESSION['game_number'] = $_POST['gameCode'];
+    $_SESSION['player_number'] = 2;
     // Check if this gameCode exist (check if input is safe too)
-    joinGame($game_number);
+    joinGame($_SESSION['game_number']);
         // If two players --> Game can start
     // Return to home page with alert: this game does not exist
 }
 // User makes game
 elseif (isset($_POST["newGame"])) {
-
-    $game_number = randomCode();
+    include __DIR__ . '/scripts/generate_code.php';
+    $_SESSION['game_number'] = checkCode();
+    $_SESSION['player_number'] = 1;
     include __DIR__ . '/scripts/makegame.php';
     // Make game with makegame.php
-    makeGame($game_number);
-    $player_number = 1;
-    echo '<h1>Game number is: '. $game_number . '</h1>';
+    makeGame($_SESSION['game_number']);
+    echo '<h1>Game number is: '. $_SESSION['game_number'] . '</h1>';
 
 }
 
 else {
     // Redirect to homepage
+    header('Location: index.php', true, 301);
+    die();
 }
-
 
 ?>
 
-<!-- <script type="application/javascript" src="scripts/game.js"></script> -->
+ <script type="application/javascript" src="scripts/game.js"></script>
 </div>
 
 <?php

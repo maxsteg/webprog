@@ -1,11 +1,11 @@
 <?php
-
+session_start();
 $json_file = file_get_contents("../data/games.json");
 $games = json_decode($json_file, true);
 // Generate time number
-$playerNumber = 3;
-$game_number = $_POST['game_number'];
-$games[$game_number]['player'. $playerNumber . '_time'] = time();
+$game_number = $_SESSION['game_number'];
+$player_number = $_SESSION['player_number'];
+$games[$game_number]['player'. $player_number . '_time'] = time();
 
 
 //array_push($games, [
