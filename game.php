@@ -50,13 +50,14 @@ else {
     die();
 }
 
-include __DIR__ . 'scripts/checkready.php';
+include __DIR__ . '/scripts/checkready.php';
 // Check if there are two players -> checkready.php {
-    include __DIR__ . 'scripts/printboxes.php';
+    include __DIR__ . '/scripts/printboxes.php';
 ?>
 
     <?php
-    }
+//    }
+
     ?>
 
  <script type="application/javascript" src="scripts/game.js"></script>
