@@ -17,9 +17,9 @@ $(function() {
         var time = d.getTime()
         console.log(time)
         checkPresence(time);
-        if (checkOthersPresence()) {
-            console.log('YAY IEMAND IS WEG EINDE');
-        }
-    }, 10000)
+        // if (checkOthersPresence()) {
+        //     console.log('YAY IEMAND IS WEG EINDE');
+        // }
+    }, 5000)
 
 });
