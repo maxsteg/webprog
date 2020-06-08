@@ -22,11 +22,20 @@ if ($player_number == 1) {
 }
 
 // Get time difference between the current time and the time of the other player
+//$other_player_time = $other_player_time / 1000;
+echo $game_number . '<br />';
+echo $other_player_time . '<br/>';
+echo $current_time;
 $time_delta = $current_time - $other_player_time;
+$time_delta2 = $other_player_time - $current_time;
+
 
 // If the time difference is bigger than 30 seconds, the other player left
-if ($time_delta > 30) {
-    return true;
+if ($time_delta > 30 or $time_delta2 > 30) {
+    echo '<p>Test</p>';
+    echo $time_delta;
+
 } else {
-    return false;
+    echo '<p>Test 2</p>';
+    echo $time_delta;
 }
