@@ -13,10 +13,12 @@ $(function() {
     // let playerNumber = data[1]
     // console.log(gameNumber);
     window.setInterval(function (){
+        // var d = new Date();
+        // var time = d.getTime()
         checkPresence();
         if (checkOthersPresence()) {
             console.log('YAY IEMAND IS WEG EINDE');
         }
-    }, 5000)
+    }, 10000)
 
 });
