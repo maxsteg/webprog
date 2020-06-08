@@ -2,23 +2,23 @@
 $page_title = 'Game';
 include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body_start.php';
-session_unset();
+if (isset($_SESSION)) {
+    session_destroy();
+}
 session_set_cookie_params([
-    'lifetime' => time() + 86400,
     'path' => '/',
     'domain' => 'localhost/webprog',
     'secure' => true,
     'httponly' => true,
     'samesite' => 'Strict',
 ]);
-
 session_start();
-
 
 
 ?>
 
 <div class="row">
+
 
 <?php
 // If game_number is submitted (user joins game)
@@ -28,6 +28,7 @@ if (isset($_POST["gameCode"])) { // Needs to be changed
     $_SESSION['player_number'] = 2; // TO-DO Check which player you are
     // Check if this gameCode exist (check if input is safe too)
     joinGame($_SESSION['game_number']);
+
     echo '<h1>Joined Game, Game number is: '. $_SESSION['game_number'] . '</h1>';
 
     // If two players --> Game can start
@@ -41,12 +42,16 @@ elseif (isset($_POST["newGame"])) {
     include __DIR__ . '/scripts/makegame.php';
     // Make game with makegame.php
     makeGame($_SESSION['game_number']);
+
     echo '<h1>New Game, Game number is: '. $_SESSION['game_number'] . '</h1>';
 }
 
 else {
     // TO-DO: Add alert on homepage, this game does not exist.
     // Redirect to homepage
+    if (isset($_SESSION)) {
+        session_destroy();
+    }
     header('Location: index.php', true, 301);
     die();
 }

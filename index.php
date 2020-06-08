@@ -2,7 +2,9 @@
 $page_title = 'Home';
 include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body_start.php';
-session_unset();
+if (isset($_SESSION)) {
+    session_destroy();
+}
 ?>
 
 <div class="row">
