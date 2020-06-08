@@ -12,8 +12,8 @@ for ($i = 0; $i < 5; $i++) {
         ++$boxcount;
         $box = 'box' . $boxcount;
         $image = $boxes[$box]['image'];
-        echo '<div class="col" id="' . $box . '">';
-        echo '<img src="images/' . $image . '" alt="' . $image . '">';
+        echo '<div class="col">';
+        echo '<img src="images/' . $image . '" id="' . $box . '" alt="' . $image . '">';
         echo '</div>';
     }
     echo '</div>';
