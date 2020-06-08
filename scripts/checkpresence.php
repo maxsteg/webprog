@@ -6,7 +6,7 @@ $games = json_decode($json_file, true);
 $game_number = $_SESSION['game_number'];
 $player_number = $_SESSION['player_number'];
 date_default_timezone_set("Europe/Amsterdam");
-$time = time();
+$time = $_POST['time'];
 if ($player_number == 1){
     $games[$game_number]['player1_time'] = $time;
 } elseif ($player_number == 2){
