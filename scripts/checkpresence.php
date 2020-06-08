@@ -5,11 +5,11 @@ $games = json_decode($json_file, true);
 // Generate time number
 $game_number = $_SESSION['game_number'];
 $player_number = $_SESSION['player_number'];
-$time = $_POST['time'];
+//$time = $_POST['time'];
 if ($player_number == 1){
-    $games[$game_number]['player1_time'] = $time;
+    $games[$game_number]['player1_time'] = time();
 } elseif ($player_number == 2){
-    $games[$game_number]['player2_time'] = $time;
+    $games[$game_number]['player2_time'] = time();
 }
 
 

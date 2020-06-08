@@ -2,17 +2,21 @@
 $page_title = 'Game';
 include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body_start.php';
-if (isset($_SESSION)) {
-    session_destroy();
-}
+
 session_set_cookie_params([
     'path' => '/',
-    'domain' => 'localhost/webprog',
+    'domain' => 'localhost',
     'secure' => true,
     'httponly' => true,
-    'samesite' => 'Strict',
+    'sameSite' => 'Strict',
 ]);
 session_start();
+if (isset($_SESSION['game_number'])) {
+    $_SESSION = array();
+}
+
+
+
 
 
 ?>
@@ -49,9 +53,6 @@ elseif (isset($_POST["newGame"])) {
 else {
     // TO-DO: Add alert on homepage, this game does not exist.
     // Redirect to homepage
-    if (isset($_SESSION)) {
-        session_destroy();
-    }
     header('Location: index.php', true, 301);
     die();
 }

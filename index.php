@@ -2,9 +2,18 @@
 $page_title = 'Home';
 include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body_start.php';
-if (isset($_SESSION)) {
-    session_destroy();
+session_set_cookie_params([
+    'path' => '/',
+    'domain' => 'localhost',
+    'secure' => true,
+    'httponly' => true,
+    'sameSite' => 'Strict',
+]);
+session_start();
+if (isset($_SESSION['game_number'])) {
+    $_SESSION = array();
 }
+
 ?>
 
 <div class="row">

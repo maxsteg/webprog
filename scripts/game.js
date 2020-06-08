@@ -1,5 +1,5 @@
 function checkPresence(time) {
-    $.post("scripts/checkpresence.php", {time: time});
+    $.post("scripts/checkpresence.php");
 
     }
 
@@ -16,10 +16,11 @@ $(function() {
         var d = new Date();
         var time = d.getTime()
         console.log(time)
-        checkPresence(time);
+        // checkPresence(time);
+        checkPresence();
         // if (checkOthersPresence()) {
         //     console.log('YAY IEMAND IS WEG EINDE');
         // }
-    }, 5000)
+    }, 3000)
 
 });
