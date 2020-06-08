@@ -5,6 +5,7 @@ $games = json_decode($json_file, true);
 // Generate time number
 $game_number = $_SESSION['game_number'];
 $player_number = $_SESSION['player_number'];
+date_default_timezone_set("Amsterdam");
 $games[$game_number]['player'. $player_number . '_time'] = time();
 
 
