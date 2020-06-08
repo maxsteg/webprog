@@ -15,7 +15,7 @@ $(function() {
     window.setInterval(function (){
         checkPresence();
         if (checkOthersPresence()) {
-            console.log('YAY IEMAND IS WEG EINDE')
+            console.log('YAY IEMAND IS WEG EINDE');
         }
     }, 5000)
 
