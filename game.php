@@ -2,7 +2,7 @@
 $page_title = 'Game';
 include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body_start.php';
-
+session_unset();
 session_set_cookie_params([
     'lifetime' => time() + 86400,
     'path' => '/',
@@ -11,6 +11,7 @@ session_set_cookie_params([
     'httponly' => true,
     'samesite' => 'Strict',
 ]);
+
 session_start();
 
 
