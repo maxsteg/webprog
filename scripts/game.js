@@ -1,22 +1,18 @@
 function checkPresence(time) {
-    $.post("scripts/checkpresence.php");
-
+    $.post("scripts/checkpresence.php", {gamenumber: gameNumber, player_number: playerNumber});
     }
 
 function checkOthersPresence() {
     $.post("scripts/otherspresence.php");
 }
 
-
+//
 $(function() {
-    // let gameNumber = data[0];
-    // let playerNumber = data[1]
-    // console.log(gameNumber);
+    // var gameNumber = "<?php echo $gamenumber ?>";
+    // var playerNumber = "<?php echo $player_number ?>";
+    console.log(playerNumber);
+    console.log(gameNumber);
     window.setInterval(function (){
-        var d = new Date();
-        var time = d.getTime()
-        console.log(time)
-        // checkPresence(time);
         checkPresence();
         // if (checkOthersPresence()) {
         //     console.log('YAY IEMAND IS WEG EINDE');

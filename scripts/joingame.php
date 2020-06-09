@@ -2,7 +2,7 @@
 function joinGame($game_number){
     $json_file = file_get_contents("data/games.json");
     $games = json_decode($json_file, true);
-    $games[$_SESSION['game_number']]['player2_time'] = time();
+    $games[$game_number]['player2_time'] = time();
 
 
 // Save to external file
