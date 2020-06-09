@@ -1,15 +1,15 @@
 <?php
 $json_file = file_get_contents("../data/games.json");
 $games = json_decode($json_file, true);
-$game_number = $_POST['gamenumber'];
-$player_number = $_POST['player_number'];
+$gamenumber = $_POST['gamenumber'];
+$playernumber = $_POST['playernumber'];
 // Generate time number
 
 
-if ($player_number == 1){
-    $games[$game_number]['player1_time'] = time();
-} elseif ($player_number == 2){
-    $games[$game_number]['player2_time'] = time();
+if ($playernumber == 1){
+    $games[$gamenumber]['player1_time'] = time();
+} elseif ($playernumber == 2){
+    $games[$gamenumber]['player2_time'] = time();
 }
 
 

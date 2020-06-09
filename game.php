@@ -29,24 +29,16 @@ elseif (isset($_POST["newGame"])) {
 
     echo '<h1>New Game, Game number is: '. $gamenumber . '</h1>';
 }
-
 else {
     // TO-DO: Add alert on homepage, this game does not exist.
     // Redirect to homepage
     header('Location: index.php', true, 301);
     die();
 }
+include __DIR__ . '/scripts/printboxes.php';
+printBoxes($gamenumber);
 
-include __DIR__ . '/scripts/checkready.php';
-// Check if there are two players -> checkready.php {
-    include __DIR__ . '/scripts/printboxes.php';
-    printBoxes($gamenumber);
 ?>
-
-    <?php
-//    }
-
-    ?>
 <script>
     var gameNumber = "<?php echo $gamenumber; ?>";
     var playerNumber = "<?php echo $player_number; ?>";
