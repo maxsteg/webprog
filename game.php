@@ -2,34 +2,18 @@
 $page_title = 'Game';
 include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body_start.php';
-if (isset($_SESSION)) {
-    session_destroy();
-}
-session_set_cookie_params([
-    'path' => '/',
-    'domain' => 'localhost/webprog',
-    'secure' => true,
-    'httponly' => true,
-    'samesite' => 'Strict',
-]);
-session_start();
-
-
 ?>
-
 <div class="row">
-
-
 <?php
 // If game_number is submitted (user joins game)
 if (isset($_POST["gameCode"])) { // Needs to be changed
     include __DIR__ . '/scripts/joingame.php';
-    $_SESSION['game_number'] = $_POST['gameCode'];
-    $_SESSION['player_number'] = 2; // TO-DO Check which player you are
+    $gamenumber = $_POST['gameCode'];
+    $player_number = 2; // TO-DO Check which player you are
     // Check if this gameCode exist (check if input is safe too)
-    joinGame($_SESSION['game_number']);
+    joinGame($gamenumber);
 
-    echo '<h1>Joined Game, Game number is: '. $_SESSION['game_number'] . '</h1>';
+    echo '<h1>Joined Game, Game number is: '. $gamenumber . '</h1>';
 
     // If two players --> Game can start
 
@@ -37,21 +21,18 @@ if (isset($_POST["gameCode"])) { // Needs to be changed
 // User makes game
 elseif (isset($_POST["newGame"])) {
     include __DIR__ . '/scripts/generate_code.php';
-    $_SESSION['game_number'] = checkCode();
-    $_SESSION['player_number'] = 1;
+    $gamenumber = checkCode();
+    $player_number = 1;
     include __DIR__ . '/scripts/makegame.php';
     // Make game with makegame.php
-    makeGame($_SESSION['game_number']);
+    makeGame($gamenumber);
 
-    echo '<h1>New Game, Game number is: '. $_SESSION['game_number'] . '</h1>';
+    echo '<h1>New Game, Game number is: '. $gamenumber . '</h1>';
 }
 
 else {
     // TO-DO: Add alert on homepage, this game does not exist.
     // Redirect to homepage
-    if (isset($_SESSION)) {
-        session_destroy();
-    }
     header('Location: index.php', true, 301);
     die();
 }
@@ -59,13 +40,17 @@ else {
 include __DIR__ . '/scripts/checkready.php';
 // Check if there are two players -> checkready.php {
     include __DIR__ . '/scripts/printboxes.php';
+    printBoxes($gamenumber);
 ?>
 
     <?php
 //    }
 
     ?>
-
+<script>
+    var gameNumber = "<?php echo $gamenumber; ?>";
+    var playerNumber = "<?php echo $player_number; ?>";
+</script>
  <script type="application/javascript" src="scripts/game.js"></script>
 </div>
 
