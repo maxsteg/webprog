@@ -11,7 +11,7 @@ function makeGame($game_number){
 
 function makeBoxes(){
 // Generates an array with all colour possibilities, except matching pairs, like ['red', 'red'].
-    $colors = array('red', 'orange', 'yellow', 'green', 'blue', 'black');
+    $colors = array('red', 'orange', 'yellow', 'green', 'blue', 'purple');
     $color_combinations = array();
     foreach ($colors as $box_color) {foreach ($colors as $bow_color) {
             if ($box_color !== $bow_color) {
@@ -65,3 +65,7 @@ function makeBoxes(){
     return $boxes;
 }
 
+function makeHints() {
+    // generate hints
+    // Add them as property to the game
+}
