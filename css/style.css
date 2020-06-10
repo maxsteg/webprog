@@ -1,0 +1,58 @@
+body {
+    background-color: #f0eded;
+    font-family: 'Raleway', sans-serif;
+}
+
+.homeButtons, .logoHome {
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 10px;
+}
+
+.logoHome img {
+    display: block;
+    width: 30%;
+    min-width: 200px;
+    margin: auto;
+    padding: 10px;
+}
+
+.homeButtons label {
+    width: calc(100% - 20px);
+    margin: 0 10px;
+}
+
+.homeButtons input {
+    width: calc(100% - 20px);
+    margin: 10px;
+    background-color: #f0eded;
+
+}
+
+.homeButtons form .btn {
+    margin: 10px;
+    width: calc(100% - 20px);
+    background-color: #8cb369;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.box {
+    display: block;
+    width: 60%;
+    margin: auto;
+}
+
+.gameCodeHead {
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 10px;
+    margin: 10px;
+}
+
+.boxes {
+    padding: 10px;
+    margin: 10px;
+}

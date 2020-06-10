@@ -13,7 +13,7 @@ if (isset($_POST["gameCode"])) { // Needs to be changed
     // Check if this gameCode exist (check if input is safe too)
     joinGame($gamenumber);
 
-    echo '<h1>Joined Game, Game number is: '. $gamenumber . '</h1>';
+    echo '<h2 class="col-md-12 gameCodeHead">Joined Game, Game number is: '. $gamenumber . '</h2>';
 
     // If two players --> Game can start
 
@@ -27,7 +27,7 @@ elseif (isset($_POST["newGame"])) {
     // Make game with makegame.php
     makeGame($gamenumber);
 
-    echo '<h1>New Game, Game number is: '. $gamenumber . '</h1>';
+    echo '<h2 class="col-md-12 gameCodeHead">New Game, Game number is: '. $gamenumber . '</h2>';
 }
 else {
     // TO-DO: Add alert on homepage, this game does not exist.
