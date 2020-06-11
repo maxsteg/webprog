@@ -6,14 +6,14 @@ function printBoxes($gamenumber)
     $boxes = $games[$gamenumber]['boxes'];
     $boxcount = 0;
 
-    echo '<div class="boxes col-md-12">';
+    echo '<div class="boxes">';
     for ($i = 0; $i < 5; $i++) {
         echo '<div class="row">';
         for ($x = 0; $x < 6; $x++) {
             ++$boxcount;
             $box = 'box' . $boxcount;
             $image = $boxes[$box]['image'];
-            echo '<div class="col col-md-2 col-sm-4 col-4">';
+            echo '<div class="col col-xl-2 col-lg-2 col-md-4 col-sm-4 col-4">';
             echo '<img  class="box" src="images/' . $image . '" id="' . $box . '" alt="' . $image . '">';
             echo '</div>';
         }
