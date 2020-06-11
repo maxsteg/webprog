@@ -18,12 +18,14 @@
 //$time_delta = $current_time - $other_player_time;
 //
 //// If the time difference is bigger than 30 seconds, the other player left
-$time_delta = ["test", "test2", "test3"];
-if ($time_delta > 30) {
-    $test = 'pizza';
-} else {
-    $test = 'test2';
-}
+//$time_delta = ["test", "test2", "test3"];
+//if ($time_delta > 30) {
+//    $test = 'pizza';
+//} else {
+//    $test = 'test2';
+//}
+//
+//
+//echo json_encode($time_delta);
 
-
-echo json_encode($time_delta);
+echo "true";
