@@ -1,6 +1,6 @@
 function checkPresence() {
     $.post("scripts/checkpresence.php", {gamenumber: gameNumber, playernumber: playerNumber});
-}
+    }
 
 
 function openBox(box) {
