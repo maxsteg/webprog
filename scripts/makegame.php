@@ -66,7 +66,3 @@ function makeBoxes(){
     return $boxes;
 }
 
-function makeHints() {
-    // generate hints
-    // Add them as property to the game
-}
