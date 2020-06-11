@@ -18,9 +18,11 @@ function checkOthersPresence() {
 
 }
 
-function openBox() {
-    $.post("scripts/openbox.php", {gamenumber: gameNumber, playernumber: playerNumber, boxnumber: boxNumber})
-
+function openBox(box) {
+    $.post("scripts/openbox.php", {gamenumber: gameNumber, playernumber: playerNumber, box: box}, function(data){
+        $state = data;
+    })
+    return $state;
 }
 
 function explodeBomb() {
