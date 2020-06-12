@@ -20,11 +20,6 @@ if (isset($other_player_time)) {
     $time_delta = $current_time - $other_player_time;
     if ($time_delta > 30) {
         echo 'false';
-        // other player left
-        // display message
-        // remove game from json file
-        // redirect to home page
-        //header('Content-Type: application/json');
     } else {
         echo 'true';
     }

@@ -41,7 +41,7 @@ function openBox(box) {
     });
 }
 
-function explodeBomb(status) {
+function explodeBomb(box, loser) {
         $.post("endgame.php", {gamenumber: gameNumber, playernumber: playerNumber}, function(bomb) {
             // background a color (circle animation --> in makegame.php even toevoegen aan het algemene spel object (e.g. bomblocation), in welk pakketje bom zit, zodat dit makkelijk te returnen is hier bij endgame)
             // delete alle images
@@ -110,7 +110,6 @@ function game() {
 }
 
 $(function() {
-
     // Check if there is a second player
     let id = window.setInterval( function () {
         $.post("scripts/checksecondplayer.php", {gamenumber: gameNumber}, function(data) {
