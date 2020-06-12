@@ -4,6 +4,7 @@ function makeGame($game_number){
     $games = json_decode($json_file, true);
     $games[$game_number]['boxes'] = makeBoxes();
     $games[$game_number]['player1_time'] = time();
+    $games[$game_number]['turn'] = 1;
     $json_file = fopen('data/games.json', 'w');
     fwrite($json_file, json_encode($games));
     fclose($json_file);
@@ -65,7 +66,3 @@ function makeBoxes(){
     return $boxes;
 }
 
-function makeHints() {
-    // generate hints
-    // Add them as property to the game
-}

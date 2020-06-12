@@ -44,7 +44,11 @@ body {
     margin: auto;
 }
 
-.gameCodeHead {
+.topBar {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     background-color: #ffffff;
     text-align: center;
     border-radius: 0.5rem;
@@ -52,7 +56,50 @@ body {
     margin: 10px;
 }
 
+.topBar div {
+    width: 33%;
+}
+
 .boxes {
     padding: 10px;
     margin: 10px;
+}
+
+.homeButton {
+    background-color: #177E89;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+}
+
+.helpButton {
+    background-color: #8cb369;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+}
+
+.gameButtons {
+    text-align: left;
+}
+
+.gameButtons img {
+    width: 25px;
+    margin: 12.5px auto;
+}
+
+.gameCodeBar {
+    text-align: right;
+}
+
+@media screen and (min-width: 992px) {
+    .boxes {
+        width: 90%;
+        margin: auto;
+        max-width: 1200px;
+    }
+
+    .row {
+        padding: 10px 0 10px 0;
+    }
 }

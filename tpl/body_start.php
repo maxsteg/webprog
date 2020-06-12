@@ -1,1 +1,1 @@
-<div class="container">
+<div class="mx-auto px-5">
