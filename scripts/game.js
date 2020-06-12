@@ -15,8 +15,16 @@ function checkPresence() {
 function checkOthersPresence() {
     let test2 = $.post("scripts/otherspresence.php", {gamenumber: gameNumber, playernumber: playerNumber});
     test2.done(function (data) {
-        console.log(data);
-    })
+        if (data === 'false') {
+            alert('seems like the other player left - redirecting to home page now!');
+            setTimeout(function() {
+                window.location.href = 'index.php';
+            }, 1000);
+        }})
+}
+
+function redirect() {
+    $.post("scripts/redirect.php");
 }
 
 
@@ -48,50 +56,51 @@ function yourTurn() {
 
 $(function() {
     let startGame = true;
+    checkOthersPresence();
 
-    window.setInterval( function () {
-        if (checkSecondPlayer()) {
-            startGame = true;
-            clearInterval();
-        }
-    }, 3000);
-
-    var yourTurn = true;
-
-    window.setInterval(function () {
-        if (startGame) {
-            console.log('hoi');
-            yourTurn = yourTurn();
-            if (checkOthersPresence()) {
-                // end game
-                // deletegame
-                // }
-            }
-        }
-
-        $('img').unbind().on('click', function (e) {
-            if (startGame && yourTurn()) {
-                // checkPresence();
-                // if (checkOthersPresence()) {
-                //     // end game
-                //     // deletegame
-                // }
-                // }, 3000);
-                console.log('test');
-                if (openBox() == "opened"):
-                    // IS AL GEOPEND
-                else if (openBox() == "empty"):
-                    changeTurn();
-                else if (openBox() == "bomb"):
-                    explodeBomb("loser");
-                    changeTurn();
-                else if (openBox() == "hint"):
-                    showHint();
-                    changeTurn();
-            }
-        });
-
-    }, 3000);
+    // window.setInterval( function () {
+    //     if (checkSecondPlayer()) {
+    //         startGame = true;
+    //         clearInterval();
+    //     }
+    // }, 3000);
+    //
+    // var yourTurn = true;
+    //
+    // window.setInterval(function () {
+    //     if (startGame) {
+    //         console.log('hoi');
+    //         yourTurn = yourTurn();
+    //         if (checkOthersPresence()) {
+    //             // end game
+    //             // deletegame
+    //             // }
+    //         }
+    //     }
+    //
+    //     $('img').unbind().on('click', function (e) {
+    //         if (startGame && yourTurn()) {
+    //             // checkPresence();
+    //             // if (checkOthersPresence()) {
+    //             //     // end game
+    //             //     // deletegame
+    //             // }
+    //             // }, 3000);
+    //             console.log('test');
+    //             if (openBox() == "opened"):
+    //                 // IS AL GEOPEND
+    //             else if (openBox() == "empty"):
+    //                 changeTurn();
+    //             else if (openBox() == "bomb"):
+    //                 explodeBomb("loser");
+    //                 changeTurn();
+    //             else if (openBox() == "hint"):
+    //                 showHint();
+    //                 changeTurn();
+    //         }
+    //     });
+    //
+    // }, 3000);
 
 
         // window.setInterval(function() {
