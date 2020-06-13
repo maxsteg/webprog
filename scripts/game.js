@@ -34,7 +34,7 @@ function openBox(box, xcoor, ycoor) {
             console.log(box_id);
             $(box_id).css('filter', 'grayscale(100%)');
             //      showHint()
-            //      $.post("changeturn.php", {gamenumber: gameNumber, playernumber: playerNumber, box: box}) <-- hoeft niks te returnen, gewoon beurt veranderen
+            //      $.post("changeturn.php", {gamenumber: gameNumber}) <-- hoeft niks te returnen, gewoon beurt veranderen
             game()
         } else if (state === 'empty') {
             var box_id = '#' + box;
@@ -42,7 +42,7 @@ function openBox(box, xcoor, ycoor) {
             $(box_id).css('filter', 'grayscale(100%)');
 
             //      doe dingen (pakketje grijs maken)
-            //      $.post("changeturn.php", {gamenumber: gameNumber, playernumber: playerNumber, box: box}) <-- hoeft niks te returnen, gewoon beurt veranderen
+            //      $.post("changeturn.php", {gamenumber: gameNumber}) <-- hoeft niks te returnen, gewoon beurt veranderen
             game()
         } else if (state === 'opened') {
             game()
