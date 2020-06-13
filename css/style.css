@@ -38,6 +38,10 @@ body {
     font-weight: 500;
 }
 
+.homeButtons form .btn:active, .homeButtons form .btn:hover {
+    background-color: #509c3b;
+}
+
 .box {
     display: block;
     width: 60%;
@@ -65,14 +69,24 @@ body {
     margin: 10px;
 }
 
-.homeButton {
+.homeRow {
+    display: flex;
+    padding: 10px;
+}
+
+.homeButton, #backButton {
     background-color: #177E89;
     width: 50px;
     height: 50px;
     padding: 0;
 }
 
-.helpButton {
+#backButton {
+    display: block;
+    float: right;
+}
+
+.helpButton,  {
     background-color: #8cb369;
     width: 50px !important;
     height: 50px;
@@ -83,7 +97,7 @@ body {
     text-align: left;
 }
 
-.gameButtons img, .homeButton img {
+.gameButtons img, .homeButton img, #backButton img {
     width: 25px;
     margin: 12.5px auto;
 }
@@ -135,7 +149,7 @@ body {
     border-radius: 50%;
 }
 
-.homeButton:hover, .homeButton:active {
+.homeButton:hover, .homeButton:active, #backButton:hover, #backButton:active {
     background-color: #185d78;
 }
 
