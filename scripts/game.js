@@ -5,6 +5,16 @@ function checkPresence() {
     });
     }
 
+function displayTurn(status) {
+    console.log(status);
+    // This works, but it shows all the divs when the document is still loading.
+    // Therefore, it might be better to use a different method(?)
+    $('div.turn').hide();
+    if (status === 'waiting') {
+        $('div.turn#waiting').show();
+    }
+}
+
 function openBox(box, xcoor, ycoor) {
     $.post("scripts/openbox.php", {gamenumber: gameNumber, playernumber: playerNumber, box: box}, function (state) {
         // Returns the state of a box
@@ -120,6 +130,7 @@ $(function() {
     let id = window.setInterval( function () {
         $.post("scripts/checksecondplayer.php", {gamenumber: gameNumber}, function(data) {
             console.log(data);
+            displayTurn('waiting');
             if (data === "true") {
                 clearInterval(id);
                 game();

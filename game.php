@@ -16,7 +16,8 @@ if (isset($_POST["gameCode"])) { // Needs to be changed
 <div class="gameButtons">
 <a href="index.php" class="btn homeButton"><img alt="Home Icon" src="images/home_icon.svg"></a>
 <div id="helpButton" class="btn helpButton"><img alt="Help Icon" src="images/help_icon.svg"></div></div>
-<div class="turn">Not Your Turn<br/><b>Please wait!</b></div>
+<div class="turn" id="your-turn">Your turn<br/><b>Don\'t explode!</b></div>
+<div class="turn" id="not-your-turn">Not Your Turn<br/><b>Please wait!</b></div>
 <div class="gameCodeBar">Game Number:<br/><b>'. $gamenumber . '</b></div>
 </div>';
 
@@ -36,7 +37,9 @@ elseif (isset($_POST["newGame"])) {
 <div class="gameButtons">
 <a href="index.php" class="btn homeButton"><img alt="Home Icon" src="images/home_icon.svg"></a>
 <div id="helpButton" class="btn helpButton"><img alt="Help Icon" src="images/help_icon.svg"></div></div>
-<div class="turn">Your Turn<br/><b>Don\'t explode!</b></div>
+<div class="turn" id="your-turn">Your Turn<br/><b>Don\'t explode!</b></div>
+<div class="turn" id="not-your-turn">Not Your Turn<br/><b>Please wait!</b></div>
+<div class="turn" id="waiting">Waiting for other player</div>
 <div class="gameCodeBar">Game Number:<br/><b>'. $gamenumber . '</b></div>
 </div>';
 }
