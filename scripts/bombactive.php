@@ -8,7 +8,7 @@ if ($setting == 'test') {
     $bomb_active = $games[$gamenumber]['bomb_active'];
     echo $bomb_active;
 } elseif ($setting == 'set') {
-    $games[$gamenumber]['bomb_active'] = 'false';
+    $games[$gamenumber]['bomb_active'] = false;
 
     // Save to external file
     $json_file = fopen('../data/games.json', 'w');
