@@ -95,8 +95,12 @@ function game() {
                                         openBox($(this).attr('id'), xcoor, ycoor)
                                     }
                                 });
-                                }
-                            });
+                            } else if (bombActive === 'false') {
+                                var xcoor = $(window).width() / 2;
+                                var ycoor = $(window).height() / 2;
+                                explodeBomb(xcoor, ycoor, 'winner');
+                            }
+                        });
                     } else {
                         // Verander tekst in dat het niet jouw beurt is
                     }
@@ -111,7 +115,6 @@ function game() {
 }
 
 $(function() {
-
     // Check if there is a second player
     let id = window.setInterval( function () {
         $.post("scripts/checksecondplayer.php", {gamenumber: gameNumber}, function(data) {
