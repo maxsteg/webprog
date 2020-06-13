@@ -13,11 +13,18 @@ function validateGameCode() {
 
 
 $(function() {
-    // Shows field to join a game using a game code
+    // Toggles field to join a game using a game code
     $('#joinGame').on('click', function(e) {
         $('#enterCode').show();
         $('#joinGame').hide();
         $('#newGame').hide();
+        e.preventDefault();
+    });
+
+    $('#backButton').on('click', function(e) {
+        $('#enterCode').hide();
+        $('#joinGame').show();
+        $('#newGame').show();
         e.preventDefault();
     });
 

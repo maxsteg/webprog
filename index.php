@@ -12,6 +12,7 @@ include __DIR__ . '/tpl/body_start.php';
     <div class="col-md-12 homeButtons">
         <form id="joinGameForm" action="game.php" method="POST">
             <div id="enterCode" style="display:none;">
+                <div id="backButton" name="submitGameCode" class="btn"><img alt="Home Icon" src="images/home_icon.svg"></div>
                 <div class="form-group">
                     <label>Game Code</label>
                     <input id="gameCode" class="form-control text-uppercase" name="gameCode" type="text" placeholder="e.g. ABC123" maxlength="6">
