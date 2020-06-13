@@ -1,6 +1,6 @@
 function validateGameCode() {
     let codeVal = $('#gameCode').val();
-    let codeRegex = "[a-zA-Z0-9]+";
+    let codeRegex = "^[a-zA-Z0-9]+$";
     if (codeVal.match(codeRegex) && codeVal.length == 6) {
         ($('#gameCode').removeClass('is-invalid')).addClass('is-valid');
         return true;
@@ -30,6 +30,17 @@ $(function() {
             $('#gameCode').val().toUpperCase();
             document.getElementById('joinGameForm').submit()
         }
+    });
 
+    $('.helpButton').on('click', function() {
+        $('.popUp').toggle();
+        $('.backGroundFiller').toggle();
+        $('.closePopUp').toggle();
+    });
+
+    $('.closePopUp').on('click', function() {
+        $('.popUp').toggle();
+        $('.backGroundFiller').toggle();
+        $('.closePopUp').toggle();
     });
 });
