@@ -62,16 +62,6 @@ function yourTurn() {
     return test;
 }
 
-$(function() {
-    let startGame = true;
-
-    window.setInterval( function () {
-        if (checkSecondPlayer()) {
-            startGame = true;
-            clearInterval();
-        }
-    }, 3000);
-
 
 function game() {
     let id = window.setInterval(function() {
@@ -82,7 +72,7 @@ function game() {
                 $.post("scripts/yourturn.php", {gamenumber: gameNumber, playernumber: playerNumber}, function(yourTurn) {
                     console.log(yourTurn);
                     if (yourTurn === "true") {
-                        $.post("scripts/bombactive.php", {gamenumber: gameNumber}, function(bombActive) {
+                        $.post("scripts/bombactive.php", {gamenumber: gameNumber, set: 'test'}, function(bombActive) {
                             if (bombActive === "true") { // toevoegen in makeGame.php --> bombActive = "true"
                                 // The other player is present and it is your turn
                                 // Verander tekst in dat het jouw beurt is
@@ -92,15 +82,14 @@ function game() {
                                         yourTurn = false;
                                         openBox($(this).attr('id'))
                                     }
-                            }
-
+                                });
+                                }
                             });
-                        });
-                    } else if {
+                    } else {
                         // Verander tekst in dat het niet jouw beurt is
                     }
-                })
-            } else if {
+                });
+            } else {
                 // Andere speler is weggegaan
                 // Stop het spel
                 // explodeBomb(0, left);
