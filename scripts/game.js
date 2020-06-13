@@ -2,15 +2,17 @@ function checkSecondPlayer() {
     let checkSecondPlayer = $.post("scripts/checksecondplayer.php", {gamenumber: gameNumber});
     let response = checkSecondPlayer.done(function (data) {
         if (data === 'true') {
-            return true;
+          return true;
         }
     })
     return response;
 }
 
 function checkPresence() {
-    $.post("scripts/checkpresence.php", {gamenumber: gameNumber, playernumber: playerNumber});
-}
+    $.post("scripts/checkpresence.php", {gamenumber: gameNumber, playernumber: playerNumber}, function () {
+        console.log('Wauw');
+    });
+    }
 
 function checkOthersPresence() {
     let test2 = $.post("scripts/otherspresence.php", {gamenumber: gameNumber, playernumber: playerNumber});
@@ -70,14 +72,14 @@ function explodeBomb(xcoor, ycoor, status) {
             }
             $('#endMessage').append('<h5>Click the button to return to the home page.</h5><a href="index.php" class="btn homeButton"><img alt="Home Icon" src="images/home_icon.svg"></a>');
             $('#endMessage').fadeIn(3000);
-        }, 500);
+            }, 500);
     });
 }
 
 
 function yourTurn() {
     let yourTurn = $.post("scripts/yourturn.php",
-        {gamenumber: gameNumber, playernumber: playerNumber});
+                          {gamenumber: gameNumber, playernumber: playerNumber});
     let test = yourTurn.done(function ( data ) {
         if (data == "true"){
             return true;
@@ -88,8 +90,10 @@ function yourTurn() {
 
 
 function game() {
+    let test = 'hoi';
     let id = window.setInterval(function() {
         checkPresence();
+
         $.post("scripts/otherspresence.php", {gamenumber: gameNumber, playernumber: playerNumber}, function(presence) {
             console.log(presence);
             if (presence === "true") {
@@ -97,7 +101,8 @@ function game() {
                     console.log(yourTurn);
                     if (yourTurn === "true") {
                         $.post("scripts/bombactive.php", {gamenumber: gameNumber, set: 'test'}, function(bombActive) {
-                            if (bombActive === true) { // toevoegen in makeGame.php --> bombActive = "true"
+                            console.log(bombActive);
+                            if (bombActive === 'true') { // toevoegen in makeGame.php --> bombActive = "true"
                                 // The other player is present and it is your turn
                                 // Verander tekst in dat het jouw beurt is
                                 clearInterval(id);
@@ -109,8 +114,8 @@ function game() {
                                         openBox($(this).attr('id'), xcoor, ycoor)
                                     }
                                 });
-                            }
-                        });
+                                }
+                            });
                     } else {
                         // Verander tekst in dat het niet jouw beurt is
                     }

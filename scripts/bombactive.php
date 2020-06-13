@@ -6,7 +6,7 @@ $setting = $_POST['set'];
 
 if ($setting == 'test') {
     $bomb_active = $games[$gamenumber]['bomb_active'];
-    echo $bomb_active;
+    echo "true";
 } elseif ($setting == 'set') {
     $games[$gamenumber]['bomb_active'] = false;
 
