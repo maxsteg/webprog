@@ -1,4 +1,5 @@
 function checkPresence() {
+    // Checks if both players are present
     $.post("scripts/checkpresence.php", {gamenumber: gameNumber, playernumber: playerNumber}, function () {
         console.log('Wauw');
     });

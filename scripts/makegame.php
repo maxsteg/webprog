@@ -1,5 +1,6 @@
 <?php
 function makeGame($game_number){
+//    Makes game and sends game information to games.json
     $json_file = file_get_contents("data/games.json");
     $games = json_decode($json_file, true);
     $games[$game_number]['boxes'] = makeBoxes();
@@ -12,7 +13,7 @@ function makeGame($game_number){
 }
 
 function makeBoxes(){
-// Generates an array with all colour possibilities, except matching pairs, like ['red', 'red'].
+    // Generates an array with all colour possibilities, except matching pairs, like ['red', 'red'].
     $colors = array('red', 'orange', 'yellow', 'green', 'blue', 'purple');
     $color_combinations = array();
     foreach ($colors as $box_color) {foreach ($colors as $bow_color) {
@@ -22,7 +23,7 @@ function makeBoxes(){
         }
     }
 
-// Makes arrays of bomb and hint possibilities.
+    // Makes arrays of bomb and hint possibilities.
     $box_amount = 30;
     $bomb_amount = 1;
     $hint_amount = 5;
@@ -35,7 +36,7 @@ function makeBoxes(){
     for ($x = 1; $x <= $hint_amount; $x++) {array_push($hint_list, true);}
     for ($x = 1; $x <= ($box_amount - $bomb_amount - $hint_amount); $x++) {array_push($hint_list, false);}
 
-// Makes all unique boxes
+    // Makes all unique boxes with information about hints, bombs, et cetera.
     $boxes = array();
     for ($x = 1; $x <= $box_amount; $x++) {
         $box_info = array();
