@@ -5,15 +5,14 @@ $gamenumber = $_POST['gamenumber'];
 $playernumber = $_POST['playernumber'];
 $current_time = time();
 
-
 if ($playernumber == 1) {
     if (isset($games[$gamenumber]['player2_time'])) {
-        $other_player_number = 2;
         $other_player_time = $games[$gamenumber]['player2_time'];
     }
 } else {
-    $other_player_number = 1;
-    $other_player_time = $games[$gamenumber]['player1_time'];
+    if (isset($games[$gamenumber]['player1_time'])) {
+        $other_player_time = $games[$gamenumber]['player1_time'];
+    }
 }
 
 if (isset($other_player_time)) {
