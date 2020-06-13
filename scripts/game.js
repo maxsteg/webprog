@@ -34,7 +34,7 @@ function openBox(box, xcoor, ycoor) {
 }
 
 function explodeBomb(xcoor, ycoor, status) {
-    $.post("endgame.php", {gamenumber: gameNumber, playernumber: playerNumber});
+    $.post("scripts/endgame.php", {gamenumber: gameNumber, playernumber: playerNumber});
     var x = xcoor - 5;     // Get the horizontal coordinate
     var y = ycoor - 5;     // Get the vertical coordinate
     document.body.innerHTML += '<div id="explosion" style="position:absolute;left:' + x + 'px;top:' + y + 'px;transition: border-radius 0.3s ease-in 0.2s, left ease-in 0.5s, top ease-in 0.5s, width ease-in 0.5s, height ease-in 0.5s;width:10px;height:10px;border-radius:50%;z-index:100;background:#f4a259;"></div>';
