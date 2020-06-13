@@ -5,6 +5,7 @@ function makeGame($game_number){
     $games[$game_number]['boxes'] = makeBoxes();
     $games[$game_number]['player1_time'] = time();
     $games[$game_number]['turn'] = 1;
+    $games[$game_number]['bomb_active'] = 'true';
     $json_file = fopen('data/games.json', 'w');
     fwrite($json_file, json_encode($games));
     fclose($json_file);
