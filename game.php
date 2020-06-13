@@ -10,7 +10,6 @@ if (isset($_POST["gameCode"])) { // Needs to be changed
     include __DIR__ . '/scripts/joingame.php';
     $gamenumber = $_POST['gameCode'];
     $player_number = 2; // TO-DO Check which player you are
-    // Check if this gameCode exist (check if input is safe too)
     joinGame($gamenumber);
 
     echo '<div class="topBar">
