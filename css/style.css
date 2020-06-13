@@ -74,7 +74,7 @@ body {
 
 .helpButton {
     background-color: #8cb369;
-    width: 50px;
+    width: 50px !important;
     height: 50px;
     padding: 0;
 }
@@ -83,13 +83,90 @@ body {
     text-align: left;
 }
 
-.gameButtons img {
+.gameButtons img, .homeButton img {
     width: 25px;
     margin: 12.5px auto;
 }
 
 .gameCodeBar {
     text-align: right;
+}
+
+.popUp {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top: 15vh;
+    width: 70%;
+    height: 70vh;
+    max-height: 500px;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px;
+    border-radius: 0.5rem;
+}
+
+.popUpContent{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.backGroundFiller {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.3;
+    width: 100vw;
+    height: 100vh;
+}
+
+.closePopUp {
+    z-index: 500;
+    position: fixed;
+    top: calc(15vh - 20px);
+    left: calc(85% - 20px);
+    background-color: #bc4b51;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.homeButton:hover, .homeButton:active {
+    background-color: #185d78;
+}
+
+.closePopUp:hover, .closePopUp:active {
+    background-color: #a5132e;
+}
+
+.helpButton:hover, .helpButton:active {
+    background-color: #509c3b;
+}
+
+.closePopUpIcon {
+    position: absolute;
+    width: 20px;
+    left: 10px;
+    top: 10px;
+}
+
+#endMessage {
+    font-size: 200%;
+    display: block;
+    color: white;
+    text-align: center;
+    height: 70vh;
+    margin: 15vh auto auto auto;
+    line-height: 15vh;
+    width: 90vw;
+}
+
+#endMessage h1 {
+    font-size: 75px;
 }
 
 @media screen and (min-width: 992px) {

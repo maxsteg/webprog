@@ -14,6 +14,12 @@ if ($box['closed'] == true) {
     } else {
         echo 'empty';
     }
+    $box['closed'] = false;
+
+    // Save to external file
+    $json_file = fopen('../data/games.json', 'w');
+    fwrite($json_file, json_encode($games));
+    fclose($json_file);
 } else {
     echo "opened";
 }

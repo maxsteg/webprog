@@ -1,4 +1,3 @@
 <?php
-// bombActive = false;
+// bomb_active = false;
 // delete game
-// return box where bomb is in
