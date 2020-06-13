@@ -1,26 +1,8 @@
-function checkSecondPlayer() {
-    let checkSecondPlayer = $.post("scripts/checksecondplayer.php", {gamenumber: gameNumber});
-    let response = checkSecondPlayer.done(function (data) {
-        if (data === 'true') {
-          return true;
-        }
-    })
-    return response;
-}
-
 function checkPresence() {
     $.post("scripts/checkpresence.php", {gamenumber: gameNumber, playernumber: playerNumber}, function () {
         console.log('Wauw');
     });
     }
-
-function checkOthersPresence() {
-    let test2 = $.post("scripts/otherspresence.php", {gamenumber: gameNumber, playernumber: playerNumber});
-    test2.done(function (data) {
-        console.log(data);
-    })
-}
-
 
 function openBox(box, xcoor, ycoor) {
     $.post("scripts/openbox.php", {gamenumber: gameNumber, playernumber: playerNumber, box: box}, function (state) {
