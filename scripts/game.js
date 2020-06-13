@@ -62,16 +62,6 @@ function yourTurn() {
     return test;
 }
 
-$(function() {
-    let startGame = true;
-
-    window.setInterval( function () {
-        if (checkSecondPlayer()) {
-            startGame = true;
-            clearInterval();
-        }
-    }, 3000);
-
 
 function game() {
     let id = window.setInterval(function() {
@@ -92,15 +82,14 @@ function game() {
                                         yourTurn = false;
                                         openBox($(this).attr('id'))
                                     }
-                            }
-
+                                });
+                                }
                             });
-                        });
-                    } else if {
+                    } else {
                         // Verander tekst in dat het niet jouw beurt is
                     }
-                })
-            } else if {
+                });
+            } else {
                 // Andere speler is weggegaan
                 // Stop het spel
                 // explodeBomb(0, left);
