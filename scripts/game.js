@@ -9,7 +9,9 @@ function checkSecondPlayer() {
 }
 
 function checkPresence() {
-    $.post("scripts/checkpresence.php", {gamenumber: gameNumber, playernumber: playerNumber});
+    $.post("scripts/checkpresence.php", {gamenumber: gameNumber, playernumber: playerNumber}, function () {
+        console.log('Wauw');
+    });
     }
 
 function checkOthersPresence() {
@@ -88,8 +90,10 @@ function yourTurn() {
 
 
 function game() {
+    let test = 'hoi';
     let id = window.setInterval(function() {
         checkPresence();
+
         $.post("scripts/otherspresence.php", {gamenumber: gameNumber, playernumber: playerNumber}, function(presence) {
             console.log(presence);
             if (presence === "true") {
@@ -97,7 +101,8 @@ function game() {
                     console.log(yourTurn);
                     if (yourTurn === "true") {
                         $.post("scripts/bombactive.php", {gamenumber: gameNumber, set: 'test'}, function(bombActive) {
-                            if (bombActive === true) { // toevoegen in makeGame.php --> bombActive = "true"
+                            console.log(bombActive);
+                            if (bombActive === 'true') { // toevoegen in makeGame.php --> bombActive = "true"
                                 // The other player is present and it is your turn
                                 // Verander tekst in dat het jouw beurt is
                                 clearInterval(id);
