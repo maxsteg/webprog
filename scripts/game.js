@@ -12,23 +12,23 @@ function openBox(box, xcoor, ycoor) {
         if (state === 'bomb') {
             console.log('boom');
             explodeBomb(xcoor, ycoor, "loser");
+            $.post("scripts/changeturn.php", {gamenumber: gameNumber});
+            game();
         } else if (state === 'hint') {
             var box_id = '#' + box;
             console.log(box_id);
             $(box_id).css('filter', 'grayscale(100%)');
             //      showHint()
-            //      $.post("changeturn.php", {gamenumber: gameNumber}) <-- hoeft niks te returnen, gewoon beurt veranderen
-            game()
+            $.post("scripts/changeturn.php", {gamenumber: gameNumber});
+            game();
         } else if (state === 'empty') {
             var box_id = '#' + box;
             console.log(box_id);
             $(box_id).css('filter', 'grayscale(100%)');
-
-            //      doe dingen (pakketje grijs maken)
-            //      $.post("changeturn.php", {gamenumber: gameNumber}) <-- hoeft niks te returnen, gewoon beurt veranderen
-            game()
+            $.post("scripts/changeturn.php", {gamenumber: gameNumber});
+            game();
         } else if (state === 'opened') {
-            game()
+            game();
         }
     });
 }

@@ -14,7 +14,7 @@ if ($box['closed'] == true) {
     } else {
         echo 'empty';
     }
-    $box['closed'] = false;
+    $games[$gamenumber]['boxes'][$_POST['box']]['closed'] = false;
 
     // Save to external file
     $json_file = fopen('../data/games.json', 'w');
