@@ -16,8 +16,8 @@ if (isset($_POST["gameCode"])) { // Needs to be changed
 <div class="gameButtons">
 <a href="index.php" class="btn homeButton"><img alt="Home Icon" src="images/home_icon.svg"></a>
 <div id="helpButton" class="btn helpButton"><img alt="Help Icon" src="images/help_icon.svg"></div></div>
-<div class="turn d-none" id="your-turn">Your turn<br/><b>Don\'t explode!</b></div>
-<div class="turn d-block" id="not-your-turn">Not Your Turn<br/><b>Please wait!</b></div>
+<div class="turn d-none">Your turn<br/><b>Don\'t explode!</b></div>
+<div class="turn d-block">Not Your Turn<br/><b>Please wait!</b></div>
 <div class="gameCodeBar">Game Number:<br/><b>'. $gamenumber . '</b></div>
 </div>';
 
@@ -37,9 +37,9 @@ elseif (isset($_POST["newGame"])) {
 <div class="gameButtons">
 <a href="index.php" class="btn homeButton"><img alt="Home Icon" src="images/home_icon.svg"></a>
 <div id="helpButton" class="btn helpButton"><img alt="Help Icon" src="images/help_icon.svg"></div></div>
-<div class="turn d-none" id="your-turn">Your Turn<br/><b>Don\'t explode!</b></div>
-<div class="turn d-none" id="not-your-turn">Not Your Turn<br/><b>Please wait!</b></div>
-<div class="turn d-block" id="waiting">Waiting for other player<br/><b>Make sure to send them the game number!</b></div>
+<div class="turn d-none">Your Turn<br/><b>Don\'t explode!</b></div>
+<div class="turn d-none">Not Your Turn<br/><b>Please wait!</b></div>
+<div class="turn d-block">Waiting for other player<br/><b>Make sure to send them the game number!</b></div>
 <div class="gameCodeBar">Game Number:<br/><b>'. $gamenumber . '</b></div>
 </div>';
 }
