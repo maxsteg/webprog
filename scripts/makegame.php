@@ -4,6 +4,7 @@ function makeGame($game_number){
     $json_file = file_get_contents("data/games.json");
     $games = json_decode($json_file, true);
     $games[$game_number]['boxes'] = makeBoxes();
+    $games[$game_number]['hints'] = makeHints($games[$game_number]['boxes']);
     $games[$game_number]['player1_time'] = time();
     $games[$game_number]['turn'] = 1;
     $games[$game_number]['bomb_active'] = "true";
@@ -66,5 +67,32 @@ function makeBoxes(){
         $boxes['box' . $x] = $box_info;
     }
     return $boxes;
+}
+
+function makeHints($boxes){
+    $colors = array('red', 'orange', 'yellow', 'green', 'blue', 'purple');
+    foreach ($boxes as $box) {
+        if ($box['bomb'] == true){
+            $bomb_color = $box['box_color'];
+            $bomb_bow = $box['bow_color'];
+        } elseif ($box['hint'] == true) {
+            if (isset($hint_color) == false) {
+                $hint_color = $box['box_color'];
+                $hint_bow = $box['bow_color'];
+            }
+        }
+    }
+    $bomb_colors = array($bomb_color, $bomb_bow);
+    $possible_colors = array_diff($colors,$bomb_colors);
+
+    $hint1 = "The bomb is not in a box that has a " . reset($possible_colors) . " color.";
+    $hint2 = "The bomb is not in a box that has a " . next($possible_colors) . " color.";
+    $hint3 = "The bomb is not in a box that has a " . next($possible_colors) . " bow.";
+    $hint4 = "The bomb is not in a box that has a " . next($possible_colors) . " bow.";
+    $hint5 = "There is a hint in the " . $hint_color . " box with a " . $hint_bow . " bow.";
+
+    $hints = array($hint5, $hint2, $hint3, $hint1, $hint4);
+
+    return $hints;
 }
 
