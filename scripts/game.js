@@ -6,11 +6,11 @@ function checkPresence() {
     }
 
 function displayTurn(status) {
-    $('div.turn').addClass('d-none').removeClass('d-block');
-
     if (status === 'yourturn') {
+        $('div.turn').addClass('d-none').removeClass('d-block');
         $('div.turn#your-turn').addClass('d-block').removeClass('d-none');
     } else if (status === 'notyourturn') {
+        $('div.turn').addClass('d-none').removeClass('d-block');
         $('div.turn#not-your-turn').addClass('d-block').removeClass('d-none');
     }
 }
