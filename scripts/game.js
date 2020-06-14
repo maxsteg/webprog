@@ -19,20 +19,19 @@ function openBox(box, xcoor, ycoor) {
     $.post("scripts/openbox.php", {gamenumber: gameNumber, playernumber: playerNumber, box: box}, function (state) {
         // Returns the state of a box
         console.log(state);
+        var box_id = '#' + box;
         if (state === 'bomb') {
             console.log('boom');
             explodeBomb(xcoor, ycoor, "loser");
             $.post("scripts/changeturn.php", {gamenumber: gameNumber});
             game();
         } else if (state === 'hint') {
-            var box_id = '#' + box;
             console.log(box_id);
             $(box_id).css('filter', 'grayscale(100%)');
-            //      showHint()
+            showHint()
             $.post("scripts/changeturn.php", {gamenumber: gameNumber});
             game();
         } else if (state === 'empty') {
-            var box_id = '#' + box;
             console.log(box_id);
             $(box_id).css('filter', 'grayscale(100%)');
             $.post("scripts/changeturn.php", {gamenumber: gameNumber});
@@ -66,7 +65,17 @@ function explodeBomb(xcoor, ycoor, status) {
         $('#endMessage').append('<h5>Click the button to return to the home page.</h5><a href="index.php" class="btn homeButton"><img alt="Home Icon" src="images/home_icon.svg"></a>');
         $('#endMessage').fadeIn(3000);
         }, 500);
-    }
+}
+
+function showHint() {
+    $.post("scripts/gethint.php", {gamenumber: gameNumber}, function (hint) {
+        console.log(hint);
+        $('#popUpContentHint').text(hint);
+        $('#popUpHint').toggle();
+        $('#backGroundFillerHint').toggle();
+        $('#closePopUpHint').toggle();
+    });
+}
 
 
 function yourTurn() {

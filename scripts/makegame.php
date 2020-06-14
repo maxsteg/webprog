@@ -85,11 +85,11 @@ function makeHints($boxes){
     $bomb_colors = array($bomb_color, $bomb_bow);
     $possible_colors = array_diff($colors,$bomb_colors);
 
-    $hint1 = "The bomb is not in a box that has a " . reset($possible_colors) . " color.";
-    $hint2 = "The bomb is not in a box that has a " . next($possible_colors) . " color.";
-    $hint3 = "The bomb is not in a box that has a " . next($possible_colors) . " bow.";
-    $hint4 = "The bomb is not in a box that has a " . next($possible_colors) . " bow.";
-    $hint5 = "There is a hint in the " . $hint_color . " box with a " . $hint_bow . " bow.";
+    $hint1 = "The bomb is not in a box that has a(n) " . reset($possible_colors) . " color.";
+    $hint2 = "The bomb is not in a box that has a(n) " . next($possible_colors) . " color.";
+    $hint3 = "The bomb is not in a box that has a(n) " . next($possible_colors) . " bow.";
+    $hint4 = "The bomb is not in a box that has a(n) " . next($possible_colors) . " bow.";
+    $hint5 = "There is a hint in the " . $hint_color . " box with a(n) " . $hint_bow . " bow.";
 
     $hints = array($hint5, $hint2, $hint3, $hint1, $hint4);
 

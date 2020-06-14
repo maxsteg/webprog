@@ -45,14 +45,20 @@ $(function() {
 
     // Toggles pop ups, like the explanation pop up.
     $('.helpButton').on('click', function() {
-        $('.popUp').toggle();
-        $('.backGroundFiller').toggle();
-        $('.closePopUp').toggle();
+        $('#popUpHelp').toggle();
+        $('#backGroundFillerHelp').toggle();
+        $('#closePopUpHelp').toggle();
     });
 
-    $('.closePopUp').on('click', function() {
-        $('.popUp').toggle();
-        $('.backGroundFiller').toggle();
-        $('.closePopUp').toggle();
+    $('#closePopUpHelp').on('click', function() {
+        $('#popUpHelp').toggle();
+        $('#backGroundFillerHelp').toggle();
+        $('#closePopUpHelp').toggle();
+    });
+
+    $('#closePopUpHint').on('click', function() {
+        $('#popUpHint').toggle();
+        $('#backGroundFillerHint').toggle();
+        $('#closePopUpHint').toggle();
     });
 });
