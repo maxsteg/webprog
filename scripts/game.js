@@ -6,12 +6,12 @@ function checkPresence() {
     }
 
 function displayTurn(status) {
-    console.log(status);
-    // This works, but it shows all the divs when the document is still loading.
-    // Therefore, it might be better to use a different method(?)
-    $('div.turn').hide();
-    if (status === 'waiting') {
-        $('div.turn#waiting').show();
+    $('div.turn').addClass('d-none').removeClass('d-block');
+
+    if (status === 'yourturn') {
+        $('div.turn#your-turn').addClass('d-block').removeClass('d-none');
+    } else if (status === 'notyourturn') {
+        $('div.turn#not-your-turn').addClass('d-block').removeClass('d-none');
     }
 }
 
@@ -92,6 +92,7 @@ function game() {
                 $.post("scripts/yourturn.php", {gamenumber: gameNumber, playernumber: playerNumber}, function(yourTurn) {
                     console.log(yourTurn);
                     if (yourTurn === "true") {
+                        displayTurn('yourturn');
                         $.post("scripts/bombactive.php", {gamenumber: gameNumber, set: 'test'}, function(bombActive) {
                             console.log(bombActive);
                             if (bombActive === 'true') { // toevoegen in makeGame.php --> bombActive = "true"
@@ -113,7 +114,7 @@ function game() {
                             }
                         });
                     } else {
-                        // Verander tekst in dat het niet jouw beurt is
+                        displayTurn('notyourturn');
                     }
                 });
             } else {
@@ -130,7 +131,6 @@ $(function() {
     let id = window.setInterval( function () {
         $.post("scripts/checksecondplayer.php", {gamenumber: gameNumber}, function(data) {
             console.log(data);
-            displayTurn('waiting');
             if (data === "true") {
                 clearInterval(id);
                 game();
