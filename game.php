@@ -54,7 +54,12 @@ printBoxes($gamenumber);
 
 ?>
     <div class="backGroundFiller" id="backGroundFillerHelp" style="display:none;"></div>
-    <div class="popUp" id="popUpHelp" style="display:none;"><div class="popUpContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div>
+    <div class="popUp" id="popUpHelp" style="display:none;">
+        <div class="popUpContent">
+            <h4>BombBox: The Rules</h4>
+            <p>BombBox is a fun two-player game where you take turns clicking one of the thirty boxes. Be careful though, because one of the boxes contains a bomb and if you click that one you lose! Five of the boxes contain a hint which will tell you about where another hint is or where you won't find the bomb. That leaves 24 empty boxes, click one of those and you will have survived another turn!<br/><br/>So create a new game or join one using a game code and keep in mind: don't explode!</p>
+        </div>
+    </div>
     <div class="closePopUp" id="closePopUpHelp" style="display:none;"><img class="closePopUpIcon" src="images/crossmark.svg" alt="Cross Mark"></div>
 
     <div class="backGroundFiller" id="backGroundFillerHint" style="display:none;"></div>

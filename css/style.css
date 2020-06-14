@@ -155,8 +155,20 @@ body {
     background-color: white;
     margin-right: auto;
     margin-left: auto;
-    padding: 30px;
+    padding: 50px;
     border-radius: 0.5rem;
+}
+
+h4 {
+    font-weight: 700;
+}
+
+.popUp h4 {
+    font-size: 24px;
+}
+
+.popUp p {
+    font-size: 20px;
 }
 
 .popUpContent{
