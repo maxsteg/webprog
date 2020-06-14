@@ -65,6 +65,7 @@ body {
 
 #homeButtons form .btn:active, #homeButtons form .btn:hover {
     background-color: #509c3b;
+    cursor: pointer;
 }
 
 .box {
@@ -105,8 +106,16 @@ body {
 #backButton {
     background-color: #177E89 !important;
     display: block;
-    float: right;
     height: 38px;
+}
+
+#newGame {
+    background-color: #177E89 !important;
+}
+
+#newGame:hover, #newGame:active {
+    background-color: #185d78 !important;
+    cursor: pointer;
 }
 
 #backButton img {
@@ -178,14 +187,17 @@ body {
 }
 
 .homeButton:hover, .homeButton:active, #backButton:hover, #backButton:active {
+    cursor: pointer;
     background-color: #185d78 !important;
 }
 
 .closePopUp:hover, .closePopUp:active {
+    cursor: pointer;
     background-color: #a5132e;
 }
 
 .helpButton:hover, .helpButton:active {
+    cursor: pointer;
     background-color: #509c3b;
 }
 
@@ -209,6 +221,10 @@ body {
 
 #endMessage h1 {
     font-size: 75px;
+}
+
+.boxes .row img:hover, .boxes .row img:active {
+    cursor:pointer;
 }
 
 @media screen and (min-width: 992px) {
