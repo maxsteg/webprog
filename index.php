@@ -7,7 +7,7 @@ include __DIR__ . '/tpl/body_start.php';
 
 <div class="homePage">
     <div class="logoHome">
-        <img class="logo" src="images/temp_logo.png">
+        <img class="logo" src="images/bombbox_logo_text.png">
     </div>
     <div class="homeRow">
         <div id="homeButtons">
