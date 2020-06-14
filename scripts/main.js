@@ -18,6 +18,7 @@ $(function() {
         $('#enterCode').show();
         $('#joinGame').hide();
         $('#newGame').hide();
+        $('#homeButtons').css('height', '255px');
         e.preventDefault();
     });
 
@@ -25,6 +26,7 @@ $(function() {
         $('#enterCode').hide();
         $('#joinGame').show();
         $('#newGame').show();
+        $('#homeButtons').css('height', '135px');
         e.preventDefault();
     });
 

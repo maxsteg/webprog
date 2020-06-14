@@ -3,11 +3,32 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-.homeButtons, .logoHome {
+.homePage {
+    width: 80vw;
+    max-width: 1000px;
+    margin: 20px auto;
+    min-height: 100px;
+}
+
+#homeButtons, .logoHome, .explanation {
     border-radius: 0.5rem;
     background-color: #ffffff;
     padding: 10px;
     margin: 10px;
+}
+
+#homeButtons, .explanation {
+    flex: 1;
+    height: auto;
+}
+
+#homeButtons {
+    flex: 1;
+    height: 135px;
+}
+
+.explanation div {
+    padding: 10px;
 }
 
 .logoHome img {
@@ -18,19 +39,19 @@ body {
     padding: 10px;
 }
 
-.homeButtons label {
+#homeButtons label {
     width: calc(100% - 20px);
     margin: 0 10px;
 }
 
-.homeButtons input {
+#homeButtons input {
     width: calc(100% - 20px);
     margin: 10px;
     background-color: #f0eded;
 
 }
 
-.homeButtons form .btn {
+#homeButtons form .btn {
     margin: 10px;
     width: calc(100% - 20px);
     background-color: #8cb369;
@@ -38,7 +59,11 @@ body {
     font-weight: 500;
 }
 
-.homeButtons form .btn:active, .homeButtons form .btn:hover {
+.valid-feedback, .invalid-feedback {
+    padding: 0 10px;
+}
+
+#homeButtons form .btn:active, #homeButtons form .btn:hover {
     background-color: #509c3b;
 }
 
@@ -49,7 +74,8 @@ body {
 }
 
 .topBar {
-    height: 70px;
+    height: auto;
+    min-height: 70px;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -69,12 +95,7 @@ body {
     margin: 10px;
 }
 
-.homeRow {
-    display: flex;
-    padding: 10px;
-}
-
-.homeButton, #backButton {
+.homeButton {
     background-color: #177E89;
     width: 50px;
     height: 50px;
@@ -82,8 +103,15 @@ body {
 }
 
 #backButton {
+    background-color: #177E89 !important;
     display: block;
     float: right;
+    height: 38px;
+}
+
+#backButton img {
+    width: 19px;
+    margin: 4.75px auto;
 }
 
 .helpButton  {
@@ -97,7 +125,7 @@ body {
     text-align: left;
 }
 
-.gameButtons img, .homeButton img, #backButton img {
+.gameButtons img, .homeButton img {
     width: 25px;
     margin: 12.5px auto;
 }
@@ -150,7 +178,7 @@ body {
 }
 
 .homeButton:hover, .homeButton:active, #backButton:hover, #backButton:active {
-    background-color: #185d78;
+    background-color: #185d78 !important;
 }
 
 .closePopUp:hover, .closePopUp:active {
@@ -192,5 +220,9 @@ body {
 
     .row {
         padding: 10px 0 10px 0;
+    }
+
+    .homeRow {
+        display: flex;
     }
 }
