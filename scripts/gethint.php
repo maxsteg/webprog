@@ -7,7 +7,8 @@ $hints = $games[$gamenumber]['hints'];
 $hint = reset($hints);
 echo $hint;
 
-unset($games[$gamenumber]['hints'][$hint]);
+$hint_index = array_search($hint, $hints);
+unset($games[$gamenumber]['hints'][$hint_index]);
 
 // Save to external file
 $json_file = fopen('../data/games.json', 'w');
