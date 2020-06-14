@@ -6,24 +6,26 @@ $playernumber = $_POST['playernumber'];
 $box = $_POST['box'];
 $box = $games[$gamenumber]['boxes'][$box];
 
-if ($box['closed'] == true) {
-    if ($box['bomb'] == true) {
-        echo 'bomb';
-    } elseif ($box['hint'] == true) {
-        echo 'hint';
-    } else {
-        echo 'empty';
-    }
-    $games[$gamenumber]['boxes'][$_POST['box']]['closed'] = false;
+if (isset($gamenumber) && isset($playernumber) && isset($box)) {
+    if ($box['closed'] == true) {
+        if ($box['bomb'] == true) {
+            echo 'bomb';
+        } elseif ($box['hint'] == true) {
+            echo 'hint';
+        } else {
+            echo 'empty';
+        }
+        $games[$gamenumber]['boxes'][$_POST['box']]['closed'] = false;
 
-    // Save to external file
-    $json_file = fopen('../data/games.json', 'w');
-    fwrite($json_file, json_encode($games));
-    fclose($json_file);
-} else {
-    echo "opened";
-}
+        // Save to external file
+        $json_file = fopen('../data/games.json', 'w');
+        fwrite($json_file, json_encode($games));
+        fclose($json_file);
+    } else {
+        echo "opened";
+    }
 
 // toevoegen:
 // box openen, veranderen dat hij op geopend staat
+}
 ?>
