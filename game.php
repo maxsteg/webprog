@@ -53,9 +53,13 @@ include __DIR__ . '/scripts/printboxes.php';
 printBoxes($gamenumber);
 
 ?>
-    <div class="backGroundFiller" style="display:none;"></div>
-    <div class="popUp" style="display:none;"><div class="popUpContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div>
-    <div class="closePopUp" style="display:none;"><img class="closePopUpIcon" src="images/crossmark.svg" alt="Cross Mark"></div>
+    <div class="backGroundFiller" id="backGroundFillerHelp" style="display:none;"></div>
+    <div class="popUp" id="popUpHelp" style="display:none;"><div class="popUpContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div>
+    <div class="closePopUp" id="closePopUpHelp" style="display:none;"><img class="closePopUpIcon" src="images/crossmark.svg" alt="Cross Mark"></div>
+
+    <div class="backGroundFiller" id="backGroundFillerHint" style="display:none;"></div>
+    <div class="popUp" id="popUpHint" style="display:none;"><div class="popUpContent" id="popUpContentHint"></div></div>
+    <div class="closePopUp" id="closePopUpHint" style="display:none;"><img class="closePopUpIcon" src="images/crossmark.svg" alt="Cross Mark"></div>
     <script>
         var gameNumber = "<?php echo $gamenumber; ?>";
         var playerNumber = "<?php echo $player_number; ?>";
