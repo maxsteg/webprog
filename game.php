@@ -1,4 +1,10 @@
 <?php
+if (!isset($_POST["gameCode"])) {
+    // Redirect to homepage
+    header('Location: https://bombbox.nl/index.php', true, 301);
+    exit();
+}
+
 session_start();
 $page_title = 'Game';
 include __DIR__ . '/tpl/head.php';
@@ -6,6 +12,8 @@ include __DIR__ . '/tpl/body_start.php';
 ?>
 <div class="row">
 <?php
+
+
 // If game_number is submitted (user joins game)
 if (isset($_POST["gameCode"])) { // Needs to be changed
     include __DIR__ . '/scripts/joingame.php';
@@ -47,12 +55,6 @@ elseif (isset($_POST["newGame"])) {
 <div class="gameCodeBar">Game Number:<br/><b>'. $gamenumber . '</b></div>
 </div>';
 }
-else {
-    // TO-DO: Add alert on homepage, this game does not exist.
-    // Redirect to homepage
-    header('Location: index.php', true, 301);
-    die();
-}
 include __DIR__ . '/scripts/printboxes.php';
 printBoxes($gamenumber);
 
@@ -70,13 +72,13 @@ printBoxes($gamenumber);
     <div class="popUp" id="popUpHint" style="display:none;"><div class="popUpContent" id="popUpContentHint"></div></div>
     <div class="closePopUp" id="closePopUpHint" style="display:none;"><img class="closePopUpIcon" src="images/crossmark.svg" alt="Cross Mark"></div>
     <script>
-        var gameNumber = "<?php echo $gamenumber; ?>";
-        var playerNumber = "<?php echo $player_number; ?>";
+        let gameNumber = "<?php echo $gamenumber; ?>";
+        let playerNumber = "<?php echo $player_number; ?>";
     </script>
  <script type="application/javascript" src="scripts/game.js"></script>
 </div>
 
 <?php
 include __DIR__ . '/tpl/body_end.php';
-?>
+
 

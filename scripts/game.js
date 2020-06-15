@@ -113,8 +113,8 @@ function game() {
                 });
             } else if (presence === "false") {
                  clearInterval(id);
-                 var xcoor = $(window).width() / 2;
-                 var ycoor = $(window).height() / 2;
+                 let xcoor = $(window).width() / 2;
+                 let ycoor = $(window).height() / 2;
                  explodeBomb(xcoor, ycoor, 'left');
             }
         })

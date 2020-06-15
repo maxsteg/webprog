@@ -7,14 +7,14 @@ include __DIR__ . '/tpl/body_start.php';
 
 <div class="homePage">
     <div class="logoHome">
-        <img class="logo" src="images/bombbox_logo_text.png">
+        <img class="logo" alt="logo" src="images/bombbox_logo_text.png">
     </div>
     <div class="homeRow">
         <div id="homeButtons">
             <form id="joinGameForm" action="game.php" method="POST">
                 <div id="enterCode" style="display:none;">
                     <div class="form-group">
-                        <label>Game Code</label>
+                        <label for="gameCode">Game Code</label>
                         <input id="gameCode" class="form-control text-uppercase" name="gameCode" type="text" placeholder="e.g. ABC123" maxlength="6">
                         <div class="valid-feedback">
                             <b>Great!</b> This field looks good!</div>
@@ -22,7 +22,7 @@ include __DIR__ . '/tpl/body_start.php';
                             <b>Uh oh!</b> This field should contain 6 characters (capital letters or numbers)!</div>
                     </div>
                     <button type="submit" id="submitGameCode" name="submitGameCode" class="btn">Join</button>
-                    <div id="backButton" name="submitGameCode" class="btn"><img alt="Home Icon" src="images/home_icon.svg"></div>
+                    <div id="backButton" class="btn"><img alt="Home Icon" src="images/home_icon.svg"></div>
                 </div>
                 <button name="joinGame" id="joinGame" class="btn">Join Game</button>
             </form>

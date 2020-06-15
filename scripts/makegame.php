@@ -1,6 +1,6 @@
 <?php
 function makeGame($game_number){
-    // Makes game and sends game information to games.json
+    // Makes game
 
     $games[$game_number]['boxes'] = makeBoxes();
     $games[$game_number]['hints'] = makeHints($games[$game_number]['boxes']);
