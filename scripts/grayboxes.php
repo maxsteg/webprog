@@ -12,4 +12,3 @@ foreach ($boxes as $key => $value) {
 }
 
 echo json_encode($opened_boxes);
-?>

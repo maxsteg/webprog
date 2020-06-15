@@ -11,4 +11,3 @@ if (isset($gamenumber)) {
         echo "false";
     }
 }
-?>

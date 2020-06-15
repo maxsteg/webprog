@@ -25,12 +25,9 @@ if (isset($gamenumber) && isset($playernumber) && isset($box)) {
         echo "opened";
     }
 
-
-// toevoegen:
-// box openen, veranderen dat hij op geopend staat
 }
 else {
     header('Location: index.php', true, 301);
     die();
 }
-?>
+

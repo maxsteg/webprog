@@ -9,6 +9,7 @@ foreach ($games as $key => $value) {
         unset($games[$key]);
     }
 }
+
 // Save to external file
 $json_file = fopen('../data/games.json', 'w');
 fwrite($json_file, json_encode($games));

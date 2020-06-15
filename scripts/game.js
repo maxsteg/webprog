@@ -1,9 +1,7 @@
 function checkPresence() {
     // Checks if both players are present
-    $.post("scripts/checkpresence.php", {gamenumber: gameNumber, playernumber: playerNumber}, function () {
-        console.log('Wauw');
-    });
-    }
+    $.post("scripts/checkpresence.php", {gamenumber: gameNumber, playernumber: playerNumber});
+}
 
 function displayTurn(status) {
     if (status === 'yourturn') {
@@ -18,21 +16,17 @@ function displayTurn(status) {
 function openBox(box, xcoor, ycoor) {
     $.post("scripts/openbox.php", {gamenumber: gameNumber, playernumber: playerNumber, box: box}, function (state) {
         // Returns the state of a box
-        console.log(state);
         var box_id = '#' + box;
         if (state === 'bomb') {
-            console.log('boom');
             explodeBomb(xcoor, ycoor, "loser");
             $.post("scripts/changeturn.php", {gamenumber: gameNumber});
             game();
         } else if (state === 'hint') {
-            console.log(box_id);
             $(box_id).css('filter', 'grayscale(100%)');
             showHint()
             $.post("scripts/changeturn.php", {gamenumber: gameNumber});
             game();
         } else if (state === 'empty') {
-            console.log(box_id);
             $(box_id).css('filter', 'grayscale(100%)');
             $.post("scripts/changeturn.php", {gamenumber: gameNumber});
             game();
@@ -69,7 +63,6 @@ function explodeBomb(xcoor, ycoor, status) {
 
 function showHint() {
     $.post("scripts/gethint.php", {gamenumber: gameNumber}, function (hint) {
-        console.log(hint);
         $('#popUpContentHint').text(hint);
         $('#popUpHint').toggle();
         $('#backGroundFillerHint').toggle();
@@ -77,29 +70,13 @@ function showHint() {
     });
 }
 
-
-function yourTurn() {
-    let yourTurn = $.post("scripts/yourturn.php",
-                          {gamenumber: gameNumber, playernumber: playerNumber});
-    let test = yourTurn.done(function ( data ) {
-        if (data == "true"){
-            return true;
-        }
-    })
-    return test;
-}
-
-
 function game() {
-    let test = 'hoi';
     let id = window.setInterval(function() {
         checkPresence();
 
         $.post("scripts/otherspresence.php", {gamenumber: gameNumber, playernumber: playerNumber}, function(presence) {
-            console.log(presence);
             if (presence === "true") {
                 $.post("scripts/yourturn.php", {gamenumber: gameNumber, playernumber: playerNumber}, function(yourTurn) {
-                    console.log(yourTurn);
                     if (yourTurn === "true") {
                         displayTurn('yourturn');
                         $.post("scripts/grayboxes.php", {gamenumber: gameNumber}, function (openedBoxes) {
@@ -112,10 +89,7 @@ function game() {
                             }
                         });
                         $.post("scripts/bombactive.php", {gamenumber: gameNumber}, function(bombActive) {
-                            console.log(bombActive);
-                            if (bombActive === 'true') { // toevoegen in makeGame.php --> bombActive = "true"
-                                // The other player is present and it is your turn
-                                // Verander tekst in dat het jouw beurt is
+                            if (bombActive === 'true') {
                                 clearInterval(id);
                                 $('img').unbind().on('click', function (e) {
                                     var xcoor = e.clientX;
@@ -149,7 +123,6 @@ $(function() {
     // Check if there is a second player
     let id = window.setInterval( function () {
         $.post("scripts/checksecondplayer.php", {gamenumber: gameNumber}, function(data) {
-            console.log(data);
             if (data === "true") {
                 clearInterval(id);
                 game();

@@ -23,4 +23,3 @@ function printBoxes($gamenumber)
         echo '</div>';
     }
 }
-?>

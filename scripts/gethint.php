@@ -14,4 +14,3 @@ unset($games[$gamenumber]['hints'][$hint_index]);
 $json_file = fopen('../data/games.json', 'w');
 fwrite($json_file, json_encode($games));
 fclose($json_file);
-?>
