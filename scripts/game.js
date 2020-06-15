@@ -126,11 +126,11 @@ function game() {
                         displayTurn('notyourturn');
                     }
                 });
-            } else {
-                // clearInterval(id);
-                // var xcoor = $(window).width() / 2;
-                // var ycoor = $(window).height() / 2;
-                // explodeBomb(xcoor, ycoor, 'left');
+            } else if (presence === "false") {
+                 clearInterval(id);
+                 var xcoor = $(window).width() / 2;
+                 var ycoor = $(window).height() / 2;
+                 explodeBomb(xcoor, ycoor, 'left');
             }
         })
     }, 3000)
