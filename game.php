@@ -1,10 +1,4 @@
 <?php
-if (!isset($_POST["gameCode"])) {
-    // Redirect to homepage
-    header('Location: https://bombbox.nl/index.php', true, 301);
-    exit();
-}
-
 session_start();
 $page_title = 'Game';
 include __DIR__ . '/tpl/head.php';

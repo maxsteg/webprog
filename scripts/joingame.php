@@ -6,9 +6,6 @@ function joinGame($game_number){
     $games = json_decode($json_file, true);
     if (isset($games[$game_number])) {
         $games[$game_number]['player2_time'] = time();
-    } else {
-        header('Location: https://bombbox.nl/index.php', true, 301);
-        die();
     }
 
 
