@@ -102,7 +102,7 @@ function game() {
                     console.log(yourTurn);
                     if (yourTurn === "true") {
                         displayTurn('yourturn');
-                        $.post("scripts/bombactive.php", {gamenumber: gameNumber, set: 'test'}, function(bombActive) {
+                        $.post("scripts/bombactive.php", {gamenumber: gameNumber}, function(bombActive) {
                             console.log(bombActive);
                             if (bombActive === 'true') { // toevoegen in makeGame.php --> bombActive = "true"
                                 // The other player is present and it is your turn
