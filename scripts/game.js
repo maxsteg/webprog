@@ -102,6 +102,15 @@ function game() {
                     console.log(yourTurn);
                     if (yourTurn === "true") {
                         displayTurn('yourturn');
+                        $.post("scripts/grayboxes.php", {gamenumber: gameNumber}, function (openedBoxes) {
+                            openedBoxes = JSON.parse(openedBoxes);
+                            var i;
+                            for (i = 0; i < openedBoxes.length; i++) {
+                                var box = openedBoxes[i];
+                                var box_id = '#' + box;
+                                $(box_id).css('filter', 'grayscale(100%)');
+                            }
+                        });
                         $.post("scripts/bombactive.php", {gamenumber: gameNumber}, function(bombActive) {
                             console.log(bombActive);
                             if (bombActive === 'true') { // toevoegen in makeGame.php --> bombActive = "true"
