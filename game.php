@@ -1,4 +1,5 @@
 <?php
+session_start();
 $page_title = 'Game';
 include __DIR__ . '/tpl/head.php';
 include __DIR__ . '/tpl/body_start.php';
@@ -9,6 +10,7 @@ include __DIR__ . '/tpl/body_start.php';
 if (isset($_POST["gameCode"])) { // Needs to be changed
     include __DIR__ . '/scripts/joingame.php';
     $gamenumber = strtoupper($_POST['gameCode']);
+    $_SESSION['gamenumber'] = $gamenumber;
     $player_number = 2; // TO-DO Check which player you are
     joinGame($gamenumber);
 
@@ -29,9 +31,11 @@ elseif (isset($_POST["newGame"])) {
     include __DIR__ . '/scripts/generate_code.php';
     $gamenumber = checkCode();
     $player_number = 1;
+    $_SESSION['gamenumber'] = $gamenumber;
     include __DIR__ . '/scripts/makegame.php';
     // Make game with makegame.php
     makeGame($gamenumber);
+
 
     echo '<div class="topBar">
 <div class="gameButtons">

@@ -1,7 +1,8 @@
 <?php
+session_start();
 function printBoxes($gamenumber)
 {
-    $json_file = file_get_contents("data/games.json");
+    $json_file = file_get_contents("data/" . $_SESSION['gamenumber'] .".json");
     $games = json_decode($json_file, true);
     $boxes = $games[$gamenumber]['boxes'];
     $boxcount = 0;

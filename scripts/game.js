@@ -23,9 +23,9 @@ function openBox(box, xcoor, ycoor) {
             game();
         } else if (state === 'hint') {
             $(box_id).css('filter', 'grayscale(100%)');
-            showHint()
             $.post("scripts/changeturn.php", {gamenumber: gameNumber});
             game();
+            showHint();
         } else if (state === 'empty') {
             $(box_id).css('filter', 'grayscale(100%)');
             $.post("scripts/changeturn.php", {gamenumber: gameNumber});
@@ -81,6 +81,7 @@ function game() {
                         displayTurn('yourturn');
                         $.post("scripts/grayboxes.php", {gamenumber: gameNumber}, function (openedBoxes) {
                             openedBoxes = JSON.parse(openedBoxes);
+                            console.log(openedBoxes);
                             var i;
                             for (i = 0; i < openedBoxes.length; i++) {
                                 var box = openedBoxes[i];
@@ -91,7 +92,7 @@ function game() {
                         $.post("scripts/bombactive.php", {gamenumber: gameNumber}, function(bombActive) {
                             if (bombActive === 'true') {
                                 clearInterval(id);
-                                $('img').unbind().on('click', function (e) {
+                                $('.box').unbind().on('click', function (e) {
                                     var xcoor = e.clientX;
                                     var ycoor = e.clientY;
                                     if (presence === "true" && yourTurn === "true") {
@@ -117,7 +118,7 @@ function game() {
                  explodeBomb(xcoor, ycoor, 'left');
             }
         })
-    }, 1000)
+    }, 2000);
 }
 
 $(function() {

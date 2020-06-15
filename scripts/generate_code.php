@@ -1,4 +1,5 @@
 <?php
+session_start();
 function generateCode() {
     // Generates a game code.
     $possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -12,7 +13,7 @@ function generateCode() {
 
 function checkCode() {
     // Checks if a game code already exists.
-    $json_file = file_get_contents("data/games.json");
+    $json_file = file_get_contents("data/" . $_SESSION['gamenumber'] .".json");
     $games = json_decode($json_file, true);
     $valid = false;
     while ($valid != true) {
