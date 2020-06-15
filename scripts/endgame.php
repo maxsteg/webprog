@@ -6,8 +6,8 @@ $gamenumber = $_POST['gamenumber'];
 
 if (isset($gamenumber)) {
     $bomb_active = $games[$gamenumber]['bomb_active'];
-    if ($bomb_active == true) {
-        $bomb_active = false;
+    if ($bomb_active == "true") {
+        $bomb_active = "false";
     } else {
         unset($games[$gamenumber]);
     }
