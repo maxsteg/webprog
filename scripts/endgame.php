@@ -8,8 +8,6 @@ if (isset($gamenumber)) {
     $bomb_active = $games[$gamenumber]['bomb_active'];
     if ($bomb_active == "true") {
         $games[$gamenumber]['bomb_active'] = "false";
-    } else {
-        unset($games[$gamenumber]);
     }
 
     $json_file = fopen('../data/games.json', 'w');

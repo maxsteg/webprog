@@ -103,6 +103,7 @@ function game() {
                                 var xcoor = $(window).width() / 2;
                                 var ycoor = $(window).height() / 2;
                                 explodeBomb(xcoor, ycoor, 'winner');
+                                clearInterval(id);
                             }
                         });
                     } else {
@@ -116,7 +117,7 @@ function game() {
                  explodeBomb(xcoor, ycoor, 'left');
             }
         })
-    }, 3000)
+    }, 1000)
 }
 
 $(function() {
