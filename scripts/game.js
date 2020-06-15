@@ -127,9 +127,10 @@ function game() {
                     }
                 });
             } else {
-                // Andere speler is weggegaan
-                // Stop het spel
-                // explodeBomb(0, left);
+                // clearInterval(id);
+                // var xcoor = $(window).width() / 2;
+                // var ycoor = $(window).height() / 2;
+                // explodeBomb(xcoor, ycoor, 'left');
             }
         })
     }, 3000)
