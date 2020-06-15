@@ -6,7 +6,8 @@ function joinGame($game_number){
     if (isset($games[$game_number])) {
         $games[$game_number]['player2_time'] = time();
     } else {
-        echo "false";
+        header('Location: index.php', true, 301);
+        die();
     }
 
 

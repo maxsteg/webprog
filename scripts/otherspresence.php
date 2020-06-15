@@ -18,7 +18,7 @@ if (isset($gamenumber) && isset($playernumber) && isset($current_time)) {
 
     if (isset($other_player_time)) {
         $time_delta = $current_time - $other_player_time;
-        if ($time_delta > 30) {
+        if ($time_delta > 60) {
             echo 'false';
         } else {
             echo 'true';

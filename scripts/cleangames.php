@@ -5,7 +5,7 @@ $games = json_decode($json_file, true);
 
 foreach ($games as $key => $value) {
     $timedelta = time() - $value['player1_time'];
-    if ($timedelta > 3600) {
+    if ($timedelta > 30 and $key !== '#!dUa^')  {
         unset($games[$key]);
     }
 }
